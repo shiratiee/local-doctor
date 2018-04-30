@@ -1,7 +1,7 @@
 {
-  "name": "boilermaker",
+  "name": "local-doctor",
   "version": "1.0.0",
-  "description": "Some boilerplate code to get you started - get shakin'!",
+  "description": "Find local doctors in your area",
   "engines": {
     "node": ">= 7.0.0"
   },
