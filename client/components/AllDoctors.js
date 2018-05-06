@@ -12,7 +12,7 @@ render() {
               {this.props.doctor.map((doc, i) => (
                 <div key={doc.id}>
                   <div>
-                    <h1>{`${i + 1}. ${doc.profile.first_name}`}</h1>
+                    <h1>{`${doc.profile.first_name}`}</h1>
                   </div>
                 </div>
               ))}
