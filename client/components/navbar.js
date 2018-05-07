@@ -3,9 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
-import SearchBar from './Searchbar';
 import AllDoctors from './AllDoctors';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
 const Navbar = ({ handleClick, isLoggedIn }) => (

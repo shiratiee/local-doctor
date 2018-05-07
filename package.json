@@ -15,7 +15,7 @@
     "seed": "node script/seed.js",
     "start": "node server",
     "start-dev": "NODE_ENV='development' npm run build-client-watch & npm run start-server",
-    "start-server": "nodemon server -e html,js,scss --ignore public --ignore client",
+    "start-server": "nodemon server -e html,js,css --ignore public --ignore client",
     "test": "NODE_ENV='test' mocha ./server/**/*.spec.js ./server/**/**/*.spec.js ./client/**/*.spec.js --require @babel/polyfill --require @babel/register"
   },
   "author": "Fullstack Academy of Code",
@@ -25,11 +25,14 @@
     "body-parser": "^1.16.1",
     "compression": "^1.7.1",
     "connect-session-sequelize": "^4.1.0",
+    "css-loader": "^0.28.11",
     "express": "^4.14.1",
     "express-session": "^1.15.1",
+    "file-loader": "^1.1.11",
     "history": "^4.6.3",
     "material-ui": "^0.20.0",
     "morgan": "^1.8.1",
+    "node-sass": "^4.9.0",
     "passport": "^0.3.2",
     "passport-google-oauth": "^1.0.0",
     "pg": "^6.1.2",
@@ -42,8 +45,10 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.8.1",
     "redux-thunk": "^2.2.0",
+    "sass-loader": "^7.0.1",
     "sequelize": "^4.3.1",
-    "socket.io": "^2.0.3"
+    "socket.io": "^2.0.3",
+    "style-loader": "^0.21.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.40",

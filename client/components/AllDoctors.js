@@ -29,10 +29,10 @@ render() {
     <SearchBar onSearch={this.performSearch}/>  
       {
         <div>
-              {this.state.doctors.map((doc, i) => (
-                <div key={doc.id}>
+              {this.state.doctors.map((data, i) => (
+                <div key={data.id}>
                   <div>
-                  <h1>{`${doc.profile.first_name}`}</h1>
+                    <h1>{`${data.profile.first_name}`}</h1>
                   </div>
                 </div>
               ))}
