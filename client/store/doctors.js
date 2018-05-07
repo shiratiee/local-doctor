@@ -6,7 +6,7 @@ const fetchDoctors= doctors => ({ type: FETCH_DOCTOR, doctors });
 
 export const fetchDoctorMatches = () => dispatch =>
   axios
-    .get('https://api.betterdoctor.com/2016-03-01/specialties?user_key=6ffaf2f592ca4029cf614bb4bf313be5')
+    .get('https://api.betterdoctor.com/2016-03-01/doctors?location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=6ffaf2f592ca4029cf614bb4bf313be5')
     .then(res => {
       dispatch(fetchDoctors(res.data));
     })

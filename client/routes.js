@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Login, Signup, UserHome, AllDoctors, SingleDoctor, Home} from './components'
+import {Login, Signup, UserHome, AllDoctors, SingleDoctor, Home, SearchBar} from './components'
 import {me} from './store'
 import fetchDoctors from './store'
 
@@ -24,7 +24,7 @@ class Routes extends Component {
         <Route path="/signup" component={Signup} />
         <Route path="/doctors" component= {AllDoctors}/>
         <Route exact path="/doctors/:id" component = {SingleDoctor} />
-        <Route exact path="/" component = {Home} />
+        <Route exact path="/" component = {SearchBar} />
         {
           isLoggedIn &&
             <Switch>
@@ -54,7 +54,6 @@ const mapDispatch = (dispatch) => {
   return {
     loadInitialData () {
       dispatch(me())
-      dispatch(fetchDoctors())
     }
   }
 }

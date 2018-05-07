@@ -3,17 +3,15 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
-import Searchbar from './Searchbar';
+import SearchBar from './Searchbar';
+import AllDoctors from './AllDoctors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
-const Navbar = ({ handleClick, isLoggedIn, children }) => (
+const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
     <h1>LOCAL DOCTOR</h1>
-    <nav>
-    <MuiThemeProvider>
-    <Searchbar />
-    </MuiThemeProvider>
+    <nav>      
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}
@@ -31,7 +29,6 @@ const Navbar = ({ handleClick, isLoggedIn, children }) => (
       )}
     </nav>
     <hr />
-    {children}
   </div>
 )
 
