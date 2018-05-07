@@ -28,6 +28,10 @@ export default class SearchBar extends Component {
             onChange={this.onSearchChange}
             name="search"
             placeholder= "ZipCode..." />
+      <input type="search"
+            onChange={this.onSearchChange}
+            name="search"
+            placeholder= "Search Radius..." />
       <button className= "button" type="submit" value="Submit">Go!</button>
       </form>
     );
