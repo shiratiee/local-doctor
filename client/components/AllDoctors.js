@@ -33,14 +33,15 @@ render() {
               {this.state.doctors.map((data, i) => (
                 <div key={data.id}>
                   <div>
-                    <h3>{`BetterDoctor - ${data.profile.first_name}
+                  <ul>
+                    <li><h3>{`BetterDoctor - ${data.profile.first_name}
                         ${data.profile.last_name}`}, {`${data.profile.title}`} </h3>     
                        <a href={data.profile.image_url}>
                          <img src={data.profile.image_url} />
                          </a>
                         <br></br>
-                        <p>{data.profile.bio}</p>
-                        
+                        <p>{data.profile.bio}</p></li>
+                    </ul>  
                   </div>
                 </div>
               ))}
