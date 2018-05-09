@@ -32,7 +32,6 @@ render() {
         <div>
               {this.state.doctors.map((data, i) => (
                 <div key={data.id}>
-                  <div>
                   <ul className="doctor">
                     <li>
                         <h3>{`BetterDoctor - ${data.profile.first_name}
@@ -44,7 +43,6 @@ render() {
                               <p>{data.profile.bio}</p>
                       </li>
                     </ul>  
-                  </div>
                 </div>
               ))}
             </div>
