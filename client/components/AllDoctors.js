@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar'
 
 
-class AllDoctors extends React.Component { 
+export default class AllDoctors extends React.Component { 
 constructor(props) {
   super(props);
      this.state = {
@@ -52,10 +52,4 @@ render() {
     }
   }
 
-  const mapState = state => ({
-    doctor: state.doctor
-  });
-  
-  
-  export default connect(mapState)(AllDoctors);
   
