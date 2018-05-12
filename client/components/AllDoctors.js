@@ -36,7 +36,6 @@ render() {
                              <a href={data.profile.image_url}>
                               <img className="doc-image" src={data.profile.image_url} />
                               </a>
-  
                               <p>{data.profile.bio}</p>
                       </li>
                     </ul>  

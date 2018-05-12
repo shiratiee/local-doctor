@@ -42,8 +42,9 @@ export const unMatch = (docId, userId) =>
   dispatch =>
     axios.delete('/api/match', {data:{docId: docId, userId: userId}})
       .then((res) => {
-        dispatch(removeUnmatchedDocs())
-        dispatch(fetchMatches(userId))
+        dispatch(removeUnmatchedDocs());
+        dispatch(fetchMatches(userId));
+        dispatch(fetchDocById(docId));
       })
       .catch(err => console.log(err));
 
