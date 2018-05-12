@@ -31,3 +31,11 @@ body {
     background-color: white;
     border: 2px solid rgb(5, 134, 26);
   }
+
+  .doc-image {
+    margin-top: 30px;
+    border: 2px solid rgb(3, 83, 53);
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+  }
