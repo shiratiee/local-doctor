@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
 
 export default class SearchBar extends Component {
-
   state = {
-    searchText: ''
+    searchText: '',
+    searchRadius: ''
   }
 
   onSearchChange = e => {
     this.setState({ searchText: e.target.value})
   }
 
+  onSearchRadius= e => {
+    this.setState({ searchRadius: e.target.value})
+  }
+
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSearch(this.state.searchText);
+    this.props.onSearch(this.state.searchText, this.state.searchRadius);
     e.currentTarget.reset();
   }
 
@@ -25,13 +29,9 @@ export default class SearchBar extends Component {
             name="search"
             placeholder= "Specialty..." />
       <input type="search"
-            onChange={this.onSearchChange}
+            onChange={this.onSearchRadius}
             name="search"
-            placeholder= "ZipCode..." />
-      <input type="search"
-            onChange={this.onSearchChange}
-            name="search"
-            placeholder= "Search Radius..." />
+            placeholder= "Lat, Long, Search Radius" />
       <button className= "button" type="submit" value="Submit">Go!</button>
       </form>
     );
