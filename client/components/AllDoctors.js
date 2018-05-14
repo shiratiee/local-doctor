@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar'
+import CurrentLocation from './CurrentLocation'
 
 
 export default class AllDoctors extends React.Component { 
@@ -43,6 +44,7 @@ render() {
               ))}
             </div>
           }
+          <CurrentLocation/>
         </div>
       );
     }
