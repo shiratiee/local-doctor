@@ -13,6 +13,10 @@ const app = express()
 const socketio = require('socket.io')
 module.exports = app
 
+
+var cors = require('cors')
+
+app.use(cors())
 /**
  * In your development environment, you can keep all of your
  * app's secret API keys in a file called `secrets.js`, in your project
