@@ -40,7 +40,7 @@ render() {
 	                  hoverOffset={25}>
 
                       <Card background='#2980B9'>
-                      <h3 className ="section">{`BetterDoctor - ${data.profile.first_name}
+                      <h3>{`BetterDoctor - ${data.profile.first_name}
                       ${data.profile.last_name}`}, {`${data.profile.title}`} <button className= "add-button">+</button> </h3> 
                       </Card>
 

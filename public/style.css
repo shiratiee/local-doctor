@@ -56,7 +56,10 @@ body {
       opacity: .8; }
 
 
-.section {
+/* 
+  scss code for expanding and collapsing a card 
+  
+  .section {
   overflow:hidden;
   transition:max-height 0.3s ease-out; 
   height:auto;
@@ -64,4 +67,4 @@ body {
 }
 .section.collapsed {
   max-height:0;
-}
+} */
