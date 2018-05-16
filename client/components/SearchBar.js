@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class SearchBar extends Component {
   state = {
     searchText: '',
-    searchRadius: ''
+    searchZipcode: ''
   }
 
   onSearchChange = e => {
@@ -16,7 +16,7 @@ export default class SearchBar extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSearch(this.state.searchText, this.state.searchRadius);
+    this.props.onSearch(this.state.searchText, this.state.searchZipcode);
     e.currentTarget.reset();
   }
 
@@ -29,9 +29,9 @@ export default class SearchBar extends Component {
             name="search"
             placeholder= "Specialty..." />
       <input type="search"
-            onChange={this.onSearchRadius}
+            onChange={this.onSearchZipcode}
             name="search"
-            placeholder= "Lat, Long, Search Radius" />
+            placeholder= "Zipcode" />
       <button className= "button" type="submit" value="Submit">Go!</button>
       </form>
     );
