@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar'
-import CurrentLocation from './CurrentLocation'
 import { CardStack, Card } from 'react-cardstack';
 import {getCurrentZipcode, removeCurrentLocation} from '../store';
 
@@ -43,16 +42,6 @@ constructor(props) {
     }
 
     
-// performSearch = (query, zipcode) => {
-//   fetch(`https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=${query}&location=45.5231%2C-122.6765%2C%205&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=6ffaf2f592ca4029cf614bb4bf313be5`)
-//     .then(res => res.json())
-//       .then((result) => { 
-//         console.log(result)
-//         this.setState({doctors: result.data})
-//   });
-// }
-
-
 performSearch = (query, zipcode) => { 
   fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.state.latLng[0]},${this.state.latLng[1]}&key=AIzaSyCPlxbijQCwg2pLSN_B_j8V9nbptG65AVM`)
   .then(res => res.json())
@@ -63,7 +52,7 @@ performSearch = (query, zipcode) => {
   .then(res => res.json())
   .then((res) => {
     console.log(res)
-        this.setState({doctors: res.data})
+    this.setState({doctors: res.data})
   })
   .catch((error) => {
     console.log('Request failed', error)

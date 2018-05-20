@@ -7,6 +7,4 @@ export {default as Navbar} from './Navbar'
 export {default as UserHome} from './user-home'
 export {Login, Signup} from './auth-form'
 export {default as AllDoctors} from './AllDoctors'
-export {default as SingleDoctor} from './SingleDoctor'
 export {default as Home} from './Home'
-export { default as CurrentLocation } from './CurrentLocation';
