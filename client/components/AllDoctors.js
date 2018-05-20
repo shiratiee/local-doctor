@@ -76,16 +76,16 @@ render() {
 	                  background='#f8f8f8'
 	                  hoverOffset={25}>
 
-                      <Card background='#2980B9'>
-                      <h3>{`BetterDoctor - ${data.profile.first_name}
-                      ${data.profile.last_name}`}, {`${data.profile.title}`} <button className= "add-button">+</button> </h3> 
-                      </Card>
+                    <Card background='#27AE60'>
+                    <a href={data.profile.image_url}>
+                    <img className="doc-image" src={data.profile.image_url} />
+                    </a>
+                    </Card>
 
-                      <Card background='#27AE60'>
-                      <a href={data.profile.image_url}>
-                      <img className="doc-image" src={data.profile.image_url} />
-                      </a>
-                      <p>{data.profile.bio}</p>
+                    <Card background='#2980B9'>
+                    <h3>{`BetterDoctor - ${data.profile.first_name}
+                    ${data.profile.last_name}`}, {`${data.profile.title}`} <button className= "add-button">+</button> </h3> 
+                    <p>{data.profile.bio}</p>
                     </Card>
                     
                     </CardStack>    
