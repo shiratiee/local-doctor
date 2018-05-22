@@ -7,7 +7,7 @@ import AllDoctors from './AllDoctors';
 
 
 const Navbar = ({ handleClick, isLoggedIn }) => (
-  <div>
+  <div className="nav-container">
     <h1>LOCAL DOCTOR</h1>
     <nav>      
       {isLoggedIn ? (

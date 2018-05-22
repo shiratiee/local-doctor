@@ -23,12 +23,12 @@ export default class SearchBar extends Component {
   render() {
     return (
      <form className = "search-form" onSubmit={this.handleSubmit} >
-     <label className= "is-hidden" htmlFor="search">Search a Specialty</label> <br></br>
+     <label className= "is-hidden" htmlFor="search"><h4>What are you looking for?</h4></label> 
      <input type="search"
             onChange={this.onSearchChange}
             name="search"
-            placeholder= "Specialty..." />
-      <button className= "button" type="submit" value="Submit">Go!</button>
+            placeholder= "Search a Specialty..." />
+      <button className= "button" type="submit" value="Submit">Find</button>
       </form>
     );
   }

@@ -62,7 +62,24 @@ performSearch = (query, zipcode) => {
   
 render() {
   return (
+    <div className="all-doctors-container">
     <div>
+    <h4> Please click "Get Current Location" button below before searching. </h4>
+    {
+      this.state.geolocationOn
+        ? <button className='geoLoc' onClick={(e) => {
+              e.preventDefault();
+              this.setState({geolocationOn: false});
+              this.props.onTurnOff();
+            }}>Turn Off Current Location</button>
+          : <button className='geoLoc' onClick={(e) => {
+              e.preventDefault();
+              this.getLocation();
+            }}>
+            Get Current Location
+          </button>
+    }
+  </div>
     <SearchBar onSearch={this.performSearch}/>  
       {
         <div>
@@ -95,22 +112,6 @@ render() {
               ))}
             </div>
           }
-          <div>
-      {
-        this.state.geolocationOn
-          ? <button className='geoLoc' onClick={(e) => {
-                e.preventDefault();
-                this.setState({geolocationOn: false});
-                this.props.onTurnOff();
-              }}>Turn Off Current Location</button>
-            : <button className='geoLoc' onClick={(e) => {
-                e.preventDefault();
-                this.getLocation();
-              }}>
-              Get Current Location
-            </button>
-      }
-    </div>
         </div>
       );
     }
