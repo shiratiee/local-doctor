@@ -47,6 +47,14 @@ body {
   padding: 2px;
 }
 
+.lets-begin {
+  text-decoration: none;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  font-size: 1em;
+}
+
   .add-button {
     height: 2em;
     width: 2em;

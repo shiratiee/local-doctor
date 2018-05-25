@@ -10,9 +10,9 @@ import Navbar from './Navbar.js'
 const Home = (props) => {
 
   return(
-    <div className="all-doctors-container">
-    <h4>Welcome to Local Doctor, click below to search a speciality and find a doctor near you!</h4>
-    <Link to='/doctors'>
+    <div>
+    <h4 className="all-doctors-container">Welcome to Local Doctor, click below to search a speciality and find a doctor near you!</h4>
+    <Link to='/doctors' className="lets-begin">
       <div>
         <h2>Let's Begin</h2>
       </div>
