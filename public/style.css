@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(173, 231, 193)
+  background-color: #ffffff;
 }
 
 .nav-container {
@@ -30,9 +30,9 @@ body {
     margin: -2.5em 0.5em 2em 0.5em;
     text-decoration: none;
     border-radius: 15px;
-    border: solid 3px darkgreen;
+    border: solid 3px #3b5998;
     cursor: pointer;
-    background: #0E6463;
+    background: dodgerblue;
     padding: 5px 5px;
     color: #fff;
     font-family: "Roboto";
@@ -42,7 +42,7 @@ body {
 .signup-login {
   font-size: 1em;
   background-color: white;
-  border: 2px solid rgb(5, 134, 26);
+  border: 2px solid #3b5998;
   border-radius: 15px;
   padding: 2px;
 }
@@ -61,24 +61,26 @@ body {
     font-size: 1em;
     margin: -2.5em 0.5em 0 0.5em;
     background-color:white;
-    border: 2px solid rgb(5, 134, 26);
+    border: 2px solid #3b5998;
   }
   .doctor li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid white;
+    margin:auto;
+    width: 50%;
+    text-align: center;
   }
   .login {
     font-size: 1em;
     margin: -2.5em 0.5em 0 0.5em;
     background-color: white;
-    border: 2px solid rgb(5, 134, 26);
+    border: 2px solid #3b5998
   }
 
   .doc-image {
     margin-top: 30px;
-    border: 2px solid rgb(3, 83, 53);
+    border: 2px solid #3b5998;
     border-radius: 50%;
     height: 150px;
     width: 150px;
@@ -87,9 +89,9 @@ body {
   .geoLoc {
     border-radius: 15px;
     cursor: pointer;
-    background: #0E6463;
+    background: dodgerblue;
     width: 25%;
-    border: solid 5px darkgreen;
+    border: solid 5px #3b5998;
     padding: 10px 15px;
     color: #fff;
     font-family: "Roboto";

@@ -90,18 +90,19 @@ render() {
                     <CardStack
 	                  height={500}
                     width={400}
-	                  background='#f8f8f8'
+	                  background='dodgerblue'
 	                  hoverOffset={25}>
 
-                    <Card background='#27AE60'>
+                    <Card background='dodgerblue'>
+                    <h3>{`BetterDoctor - ${data.profile.first_name}
+                    ${data.profile.last_name}`}, {`${data.profile.title}`} <button className= "add-button">+</button> </h3> 
                     <a href={data.profile.image_url}>
                     <img className="doc-image" src={data.profile.image_url} />
                     </a>
                     </Card>
 
-                    <Card background='#2980B9'>
-                    <h3>{`BetterDoctor - ${data.profile.first_name}
-                    ${data.profile.last_name}`}, {`${data.profile.title}`} <button className= "add-button">+</button> </h3> 
+                    <Card background='#8b9dc3'>
+                    <h3>Bio <button className= "add-button">+</button> </h3>
                     <p>{data.profile.bio}</p>
                     </Card>
                     
