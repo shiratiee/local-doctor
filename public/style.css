@@ -6,8 +6,8 @@ body {
   margin: auto;
   width: 50%;
   text-align: center;
-  background: dodgerblue;
-  border: 2px solid #3b5998;
+  background: lightgrey;
+  border: 2px solid dodgerblue;
   border-radius: 15px;
 }
 
