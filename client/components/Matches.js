@@ -14,9 +14,9 @@ class Matches extends Component {
           {this.props.matches.length ?
               this.props.matchDocs.map(doc => { 
                 return ( 
-                pet.id &&
-                <div key={pet.id.$t} className="matches petCard">
-                  <Link to={`matches/${pet.id.$t}`}>
+                doc.id &&
+                <div key={doc.id.$t} className="matches docCard">
+                  <Link to={`matches/${doc.id.$t}`}>
                     <img
                       src={
                 doc.media.photos
@@ -34,7 +34,7 @@ class Matches extends Component {
                       <FontAwesome name="heart" />
                       <FontAwesome name="remove" />
                     </button>
-                    <div id="petInfo">
+                    <div id="docInfo">
                       <h1>{doc.name.$t}</h1>
                       <h2>{doc.bio.$t}</h2>
                     </div>
