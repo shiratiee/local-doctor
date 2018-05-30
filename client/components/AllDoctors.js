@@ -84,7 +84,7 @@ render() {
       {
         <div>
               {this.state.doctors.map((data, i) => (
-                <div key={data.id}>
+                <div key ={i}>
                   <ul className="doctor">
                     <li>
                     <CardStack
