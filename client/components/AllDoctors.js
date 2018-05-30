@@ -41,7 +41,7 @@ constructor(props) {
       console.log('getCurrentPosition Error:', err);
     }
 
-    
+
 performSearch = (query) => { 
   fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.state.latLng[0]},${this.state.latLng[1]}&key=AIzaSyCPlxbijQCwg2pLSN_B_j8V9nbptG65AVM`)
   .then((result) => {
@@ -123,7 +123,8 @@ render() {
   }
 
 
-const mapState = state => ({currentLocation: state.currentLocation});
+const mapState = state => ({
+  currentLocation: state.currentLocation});
 
 const mapDispatch = dispatch => ({
   onLocation(lat, lng) {
@@ -135,10 +136,7 @@ const mapDispatch = dispatch => ({
   },
   onLove(docId, userId) {
     dispatch(addMatches(docId, userId));
-  },
-  loadMatches(id) {
-    dispatch(fetchMatches(id));
-  },
+  }
 });
 
 export default connect(mapState, mapDispatch)(AllDoctors);

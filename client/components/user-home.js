@@ -2,12 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {withRouter, Link} from 'react-router-dom'
+import Matches from './Matches'
 
 /**
  * COMPONENT
  */
 export const UserHome = (props) => {
-  const {email} = props
+  const {email, user} = props
+  const userId = user.id;
 
   return (
   <div>
