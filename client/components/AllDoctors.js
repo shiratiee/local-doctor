@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar'
 import { CardStack, Card } from 'react-cardstack';
-import {getCurrentZipcode, removeCurrentLocation} from '../store';
+import {getCurrentZipcode, removeCurrentLocation, fetchMatches, addMatches } from '../store';
 
 
 class AllDoctors extends React.Component { 
@@ -60,6 +60,7 @@ performSearch = (query) => {
   
   
 render() {
+  const { onLove } = this.props
   return (
     <div className="all-doctors-container">
     <div>
@@ -93,6 +94,9 @@ render() {
 	                  hoverOffset={25}>
 
                     <Card background='dodgerblue'>
+                    <button>
+                    Save Doctor Info 
+                    </button>
                     <h3>{`BetterDoctor - ${data.profile.first_name}
                     ${data.profile.last_name}`}, {`${data.profile.title}`} <button className= "add-button">+</button> </h3> 
                    
@@ -128,7 +132,13 @@ const mapDispatch = dispatch => ({
   },
   onTurnOff() {
     dispatch(removeCurrentLocation());
-  }
+  },
+  onLove(docId, userId) {
+    dispatch(addMatches(docId, userId));
+  },
+  loadMatches(id) {
+    dispatch(fetchMatches(id));
+  },
 });
 
 export default connect(mapState, mapDispatch)(AllDoctors);

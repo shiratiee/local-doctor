@@ -45,7 +45,7 @@ class Matches extends Component {
 const mapState = state => ({
   currentUser: state.currentUser,
   matches: state.matches,
-  matchPets: state.matchDocs,
+  matchDocs: state.matchDocs,
 });
 
 const mapDispatch = dispatch => ({
