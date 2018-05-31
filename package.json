@@ -39,6 +39,7 @@
     "node-sass": "^4.9.0",
     "passport": "^0.3.2",
     "passport-google-oauth": "^1.0.0",
+    "path": "^0.12.7",
     "pg": "^6.1.2",
     "pg-hstore": "^2.3.2",
     "prop-types": "^15.5.8",
