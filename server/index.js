@@ -1,4 +1,3 @@
-const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
@@ -12,6 +11,8 @@ const PORT = process.env.PORT || 3000
 const app = express()
 const socketio = require('socket.io')
 const router = express.Router();
+const path = require('path')
+
 module.exports = app
 
 
@@ -75,7 +76,7 @@ const createApp = () => {
   })
 
   // sends index.html
-  app.use('*', (req, res) => {
+  router.use('*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public/index.html'))
   })
 
