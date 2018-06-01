@@ -10,7 +10,6 @@ const sessionStore = new SequelizeStore({db})
 const PORT = process.env.PORT || 3000
 const app = express()
 const socketio = require('socket.io')
-const router = express.Router();
 const path = require('path')
 
 module.exports = app
@@ -76,7 +75,7 @@ const createApp = () => {
   })
 
   // sends index.html
-  router.use('*', (req, res) => {
+  app.use('*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public/index.html'))
   })
 

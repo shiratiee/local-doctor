@@ -1,5 +1,5 @@
 const User = require('./user')
-const Match = require('./Match')
+const Match = require('./match')
 
 /**
  * If we had any associations to make, this would be a great place to put them!

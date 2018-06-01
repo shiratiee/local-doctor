@@ -2,7 +2,7 @@ const router = require('express').Router()
 const {Match} = require('../db/models')
 module.exports = router
 
-//Get all matches belonging to the logged-in user-- requires the user to be logged in so the currentUser's id can be passed to req.body
+// Get all matches belonging to the logged-in user-- requires the user to be logged in so the currentUser's id can be passed to req.body
 router.get('/:userId', (req, res, next) => {
   Match.findAll({
       where: {
