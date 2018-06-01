@@ -82,6 +82,15 @@ const createApp = () => {
     res.sendFile(path.join(__dirname, '..', 'public/index.html'))
   })
 
+  app.configure('production', () => {
+    app.use((req, res, next) => {
+      if (req.header('x-forwarded-proto') !== 'https') 
+        res.redirect(`https://${req.header('host')}${req.url}`)
+      else
+        next()  
+    })
+  })
+  
   // error handling endware
   app.use((err, req, res, next) => {
     console.error(err)
@@ -89,6 +98,8 @@ const createApp = () => {
     res.status(err.status || 500).send(err.message || 'Internal server error.')
   })
 }
+
+
 
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)
