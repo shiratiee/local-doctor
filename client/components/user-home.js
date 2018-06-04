@@ -9,7 +9,7 @@ import Matches from './Matches'
  */
 export const UserHome = (props) => {
   const {email, user} = props
-  const userId = user.id;
+  // const userId = user.id;
 
   return (
   <div>
@@ -20,7 +20,6 @@ export const UserHome = (props) => {
           <h2>Let's Begin</h2>
         </Link>
      </div> 
-    <Matches userId={props.user.id} />
   </div>
   )
 }
