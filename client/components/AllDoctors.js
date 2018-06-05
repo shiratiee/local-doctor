@@ -42,6 +42,7 @@ constructor(props) {
     }
 
 
+
 performSearch = (query) => { 
   fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.state.latLng[0]},${this.state.latLng[1]}&key=AIzaSyCPlxbijQCwg2pLSN_B_j8V9nbptG65AVM`)
   .then((result) => {
@@ -60,7 +61,7 @@ performSearch = (query) => {
   
   
 render() {
-  const { onLove } = this.props
+  const { onLove, user } = this.props
   return (
     <div className="all-doctors-container">
     <div>
@@ -94,7 +95,9 @@ render() {
 	                  hoverOffset={25}>
 
                     <Card background='dodgerblue'>
-                    <button>
+                    <button
+                    onClick={() => { onLove(i.$t, user.id); }}
+                    >
                     Save Doctor Info 
                     </button>
                     <h3>{`BetterDoctor - ${data.profile.first_name}
@@ -124,7 +127,7 @@ render() {
 
 
 const mapState = state => ({
-  currentLocation: state.currentLocation});
+  currentLocation: state.currentLocation})
 
 const mapDispatch = dispatch => ({
   onLocation(lat, lng) {
@@ -135,6 +138,7 @@ const mapDispatch = dispatch => ({
     dispatch(removeCurrentLocation());
   },
   onLove(docId, userId) {
+    console.log('docId', docId, 'userId', userId)
     dispatch(addMatches(docId, userId));
   }
 });

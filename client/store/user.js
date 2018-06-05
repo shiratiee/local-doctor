@@ -51,7 +51,7 @@ export const logout = () =>
 /**
  * REDUCER
  */
-export default function (state = defaultUser, action) {
+export default function currentUser(state = defaultUser, action) {
   switch (action.type) {
     case GET_USER:
       return action.user
