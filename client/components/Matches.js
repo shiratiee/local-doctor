@@ -22,7 +22,7 @@ class Matches extends Component {
                     <button
                       className="unmatch smallIcon"
                       onClick={(event) => {
-                      event.preventDefault(); this.props.onUnmatch(doc, this.props.currentUser.id);
+                      event.preventDefault(); this.props.onUnmatch(doc, this.props.user.id);
               }}
                     >
                       <FontAwesome name="heart" />

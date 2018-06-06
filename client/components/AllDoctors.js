@@ -96,7 +96,7 @@ render() {
 
                     <Card background='dodgerblue'>
                     <button
-                    onClick={() => { onLove(i.$t, user.id); }}
+                    onClick={() => { onLove(i.$t); }}
                     >
                     Save Doctor Info 
                     </button>
