@@ -8,42 +8,6 @@ body {
   text-align: center;
 }
 
-.login {
-    font-size: 15px;
-    margin: -2.5em 0.5em 2em 0.5em;
-    text-decoration: none;
-    border-radius: 15px;
-    padding: 5px 10px;
-    font-family: "Roboto";
-    font-weight: 400;
-    transition: all .5s ease; 
-}
-/* .button {
-    font-size: 15px;
-    margin: -2.5em 0.5em 2em 0.5em;
-    text-decoration: none;
-    border-radius: 15px;
-    border: solid 3px #3b5998;
-    cursor: pointer;
-    background: dodgerblue;
-    padding: 5px 5px;
-    color: #fff;
-    font-family: "Roboto";
-    font-weight: 400;
-    transition: all .5s ease; 
-  } */
-
-
-
-  .add-button {
-    height: 1em;
-    width: 1em;
-    font-size: 1em;
-    margin: -2.5em 0.5em 0 0.5em;
-    background-color:rgb(177, 44, 204);
-    border: 2px solid #3b5998;
-  }
-
   .doctor li {
     display: flex;
     flex-direction: column;
@@ -109,7 +73,7 @@ nav {
 
   h1 {
     background-color: #c7b1c7;
-    font-family: 'Barlow Condensed';
+    font-family: 'Roboto';
     color: #2872e2;
     font-size: 3vw;
     text-indent: 46px;
