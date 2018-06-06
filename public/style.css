@@ -51,11 +51,11 @@ body {
     text-align: center;
   }
   .doc-image {
-    margin-top: 30px;
+    margin-top: 10px;
     border: 2px solid #3b5998;
     border-radius: 50%;
-    height: 150px;
-    width: 150px;
+    height: 110px;
+    width: 110px;
   }
 
   .geoLoc {
@@ -161,5 +161,4 @@ button {
   position: relative;
   transition: all 0.3s;
 }
-
 
