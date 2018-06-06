@@ -1,24 +1,12 @@
 body {
-  background-color: #ffffff;
+  background-color: #e0d6df;
 }
-
-.nav-container {
-  margin: auto;
-  width: 50%;
-  text-align: center;
-  background: lightgrey;
-  border: 2px solid dodgerblue;
-  border-radius: 15px;
-}
-
 
 .all-doctors-container {
   margin: auto;
   width: 50%;
   text-align: center;
 }
-
-
 
 .login {
     font-size: 15px;
@@ -30,7 +18,7 @@ body {
     font-weight: 400;
     transition: all .5s ease; 
 }
-.button {
+/* .button {
     font-size: 15px;
     margin: -2.5em 0.5em 2em 0.5em;
     text-decoration: none;
@@ -43,29 +31,16 @@ body {
     font-family: "Roboto";
     font-weight: 400;
     transition: all .5s ease; 
-  }
-.signup-login {
-  font-size: 1em;
-  background-color: white;
-  border: 2px solid #3b5998;
-  border-radius: 15px;
-  padding: 2px;
-}
+  } */
 
-.lets-begin {
-  text-decoration: none;
-  margin: auto;
-  width: 50%;
-  text-align: center;
-  font-size: 1em;
-}
+
 
   .add-button {
-    height: 2em;
-    width: 2em;
+    height: 1em;
+    width: 1em;
     font-size: 1em;
     margin: -2.5em 0.5em 0 0.5em;
-    background-color:white;
+    background-color:rgb(177, 44, 204);
     border: 2px solid #3b5998;
   }
   .doctor li {
@@ -76,13 +51,6 @@ body {
     width: 50%;
     text-align: center;
   }
-  .login {
-    font-size: 1em;
-    margin: -2.5em 0.5em 0 0.5em;
-    background-color: white;
-    border: 2px solid #3b5998
-  }
-
   .doc-image {
     margin-top: 30px;
     border: 2px solid #3b5998;
@@ -96,6 +64,7 @@ body {
     cursor: pointer;
     background: dodgerblue;
     width: 25%;
+    height: 35%;
     border: solid 5px #3b5998;
     padding: 10px 15px;
     color: #fff;
@@ -120,3 +89,80 @@ body {
 .section.collapsed {
   max-height:0;
 } */
+
+nav {
+  background: black;
+  text-align: right;
+ }
+  a {
+    display: inline-block;
+    margin: 7px 10px;
+    margin-right: 40px;
+    color: #8d1c8d;
+  }
+
+  p {
+    float: left;
+    margin: 7px 10px;
+    margin-left: 40px;
+    color: #8d1c8d;
+  }
+
+
+
+  h1 {
+    background-color: #c7b1c7;
+    font-family: 'Barlow Condensed';
+    color: #2872e2;
+    font-size: 3vw;
+    text-indent: 46px;
+    margin: 0;
+    padding: 8px 0px 13px 0px;
+  }
+
+ .icon {
+  /* width: 20px;
+  height: 20px; */
+  width: 3%; 
+  margin-right: 10px;
+ }
+
+ .auth-form {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 50%;
+  padding: 25px 0px;
+  position: relative;
+  margin: auto;
+  margin-top: 70px;
+  box-shadow: rgba(105, 105, 105, 0.23) 4px 4px 17px;
+
+}
+
+
+input {
+  width: 64%;
+  height: 45px;
+  margin-bottom: 0px !important;
+  font-size: 18px;
+  border: black 1px solid;
+  padding-left: 3% !important;
+}
+
+button {
+  height: 45px;
+  background: #8d1c8d;
+  color: #fff;
+  padding: 14px 37px 14px 37px;
+  border: none;
+  cursor: pointer;
+  margin: 5px 0 5px 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  transition: all 0.3s;
+}
+
+

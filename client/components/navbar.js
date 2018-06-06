@@ -4,31 +4,34 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import AllDoctors from './AllDoctors';
+import UserHome from './user-home';
 
 
-const Navbar = ({ handleClick, isLoggedIn }) => (
-  <div className="nav-container">
-    <h1>LOCAL DOCTOR</h1>
-    <nav>      
-      {isLoggedIn ? (
-        <div>
-          {/* The navbar will show these links after you log in */}
-          <Link to="/user-home" className="login">Home</Link>
-          <a className="login" href="#" onClick={handleClick}>
-            Logout
-          </a>
-        </div>
-      ) : (
-        <div>
-          {/* The navbar will show these links before you log in */}
-          <button className="login"><Link to="/login">Login</Link></button>
-          <button className="login"><Link to="/signup">Sign Up</Link></button>
-        </div>
-      )}
-    </nav>
-    <hr />
-  </div>
-)
+const Navbar = ({ handleClick, isLoggedIn, children }) => (
+    <div>
+        {
+          isLoggedIn
+            ? <div>
+            <nav>
+              {/* The navbar will show these links after you log in */}
+              <User-home />
+              <a href="#" onClick={handleClick}>Logout</a>
+            </nav>
+            <h1 className="logo"><img className="icon" src="/doc-icon.png" />LocalDoctor</h1>
+            </div>
+            : <div>
+            <nav>
+              {/* The navbar will show these links before you log in */}
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Sign Up</Link>
+            </nav>
+            <h1 className="logo"><img className="icon" src="/doc-icon.png" />LocalDoctor</h1>
+            </div>
+        }
+      {children}
+    </div>
+  )
+
 
 /**
  * CONTAINER

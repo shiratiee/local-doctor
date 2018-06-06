@@ -101,7 +101,7 @@ render() {
                     Save Doctor Info 
                     </button>
                     <h3>{`BetterDoctor - ${data.profile.first_name}
-                    ${data.profile.last_name}`}, {`${data.profile.title}`} <button className= "add-button">+</button> </h3> 
+                    ${data.profile.last_name}`}, {`${data.profile.title}`} </h3> 
                    
                     <img className="doc-image" src={data.profile.image_url} />
                   
@@ -109,7 +109,7 @@ render() {
                     </Card>
 
                     <Card background='#8b9dc3'>
-                    <h3>Bio <button className= "add-button">+</button> </h3>
+                    <h3>Bio </h3>
                     <p>{data.profile.bio}</p>
                     </Card>
                     
