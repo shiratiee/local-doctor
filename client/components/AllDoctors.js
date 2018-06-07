@@ -102,15 +102,20 @@ render() {
                     </button>
                     <h3>{`BetterDoctor - ${data.profile.first_name}
                     ${data.profile.last_name}`}, {`${data.profile.title}`} </h3> 
-                   
+                    {data.practices[0].website}
                     <img className="doc-image" src={data.profile.image_url} />
-                  
-                      <h4>{data.practices[0].visit_address.street}</h4>
+                    <br></br>
+                    <span> Address </span>
+                    <p>
+                      {data.practices[0].visit_address.street} <br></br>
+                      {data.practices[0].visit_address.city}, {data.practices[0].visit_address.state} <br></br>
+                    </p> 
+                    <span> Bio </span>
+                    <p>{data.profile.bio.slice(0,400)+"..."}</p>
                     </Card>
 
                     <Card background='#8b9dc3'>
-                    <h3>Bio </h3>
-                    <p>{data.profile.bio}</p>
+                    <h3> Accepted Insurances </h3>     
                     </Card>
                     
                     </CardStack>    
