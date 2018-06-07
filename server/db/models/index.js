@@ -7,7 +7,8 @@ const Match = require('./match')
  *
  *    BlogPost.belongsTo(User)
  */
-
+User.hasMany(Match, {onDelete: "cascade"})
+Match.belongsTo(User)
 /**
  * We'll export all of our models here, so that any time a module needs a model,
  * we can just require it from 'db/models'
