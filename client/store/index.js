@@ -13,12 +13,11 @@ import {
   composeWithDevTools
 } from 'redux-devtools-extension';
 import user from './user'
-import doctors from './doctors'
 import matchdocs from './matchdocs'
 import matches from './matches'
 
 
-const reducer = combineReducers({user, doctors, matchdocs, matches})
+const reducer = combineReducers({user, matchdocs, matches})
 const middleware = composeWithDevTools(applyMiddleware(
   thunkMiddleware,
   createLogger({collapsed: true})
@@ -40,7 +39,6 @@ store.subscribe(() => localStorage.setItem('store', JSON.stringify(store.getStat
 
 export default store
 export * from './user'
-export * from './doctors'
 export * from './matchdocs'
 export * from './matches'
 

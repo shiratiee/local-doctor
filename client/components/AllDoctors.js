@@ -96,7 +96,7 @@ render() {
 
                     <Card background='dodgerblue'>
                     <button
-                    onClick={() => { onLove(i.$t); }}
+                    onClick={() => { onLove(i.$t,user.id); }}
                     >
                     Save Doctor Info 
                     </button>
@@ -132,7 +132,9 @@ render() {
 
 
 const mapState = state => ({
-  currentLocation: state.currentLocation})
+  currentLocation: state.currentLocation,
+  user: state.user
+})
 
 const mapDispatch = dispatch => ({
   onLocation(lat, lng) {
