@@ -115,9 +115,8 @@ render() {
                     </Card>
 
                     <Card background='#8b9dc3'>
-                    <h3> Accepted Insurances </h3>     
+                    <h3> Accepted Insurances </h3>
                     </Card>
-                    
                     </CardStack>    
                       </li>
                     </ul>  
