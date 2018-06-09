@@ -9,6 +9,7 @@ body {
 }
 
   .doctor li {
+    font-family: 'Lato', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,7 +23,8 @@ body {
     width: 110px;
   }
 
-  .geoLoc {
+  /* .geoLoc {
+    position: relative;
     border-radius: 15px;
     cursor: pointer;
     background: dodgerblue;
@@ -32,10 +34,10 @@ body {
     font-family: "Roboto";
     font-size: 16px;
     font-weight: 400;
-    transition: all .5s ease; }
+    transition: all .5s ease; } */
     
-    .geoLoc:hover {
-      opacity: .8; }
+    /* .geoLoc:hover {
+      opacity: .8; } */
 
 
 /* 
@@ -54,6 +56,7 @@ body {
 nav {
   background: black;
   text-align: right;
+  font-family: 'Lato', sans-serif;
  }
   a {
     display: inline-block;
@@ -73,22 +76,25 @@ nav {
 
   h1 {
     background-color: #c7b1c7;
-    font-family: 'Roboto';
-    color: #2872e2;
+    font-family: 'Lato', sans-serif;
+    color: #8d1c8d;
     font-size: 3vw;
     text-indent: 46px;
     margin: 0;
     padding: 8px 0px 13px 0px;
   }
 
+  h4 {
+    font-family: 'Lato', sans-serif;
+  }
+
  .icon {
-  /* width: 20px;
-  height: 20px; */
   width: 3%; 
   margin-right: 10px;
  }
 
  .auth-form {
+  font-family: 'Lato', sans-serif;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.7);
   width: 50%;

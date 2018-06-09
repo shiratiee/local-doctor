@@ -17,7 +17,7 @@ const Navbar = ({ handleClick, isLoggedIn, children }) => (
               <User-home />
               <a href="#" onClick={handleClick}>Logout</a>
             </nav>
-            <h1 className="logo"><img className="icon" src="/doc-icon.png" />LocalDoctor</h1>
+            <h1><img className="icon" src="/doc-icon.png" />LocalDoctor</h1>
             </div>
             : <div>
             <nav>

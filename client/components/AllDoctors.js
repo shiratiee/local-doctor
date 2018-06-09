@@ -65,7 +65,7 @@ render() {
   return (
     <div className="all-doctors-container">
     <div>
-    <h4> Please click "Get Current Location" button below before searching. </h4>
+    <h4> Click "Get Current Location" button below before searching. </h4>
     {
       this.state.geolocationOn
         ? <button className='geoLoc' onClick={(e) => {
@@ -139,7 +139,6 @@ const mapState = state => ({
 const mapDispatch = dispatch => ({
   onLocation(lat, lng) {
     console.log('LAT', lat, 'LNG', lng)
-    // dispatch(getCurrentZipcode(lat, lng));
   },
   onTurnOff(lat,lng) {
     dispatch(removeCurrentLocation());
