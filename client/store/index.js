@@ -6,9 +6,10 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
 import matchdocs from './matchdocs'
 import matches from './matches'
+import currentLocation from './currentLocation'
 
 
-const reducer = combineReducers({user})
+const reducer = combineReducers({user, currentLocation})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
@@ -18,5 +19,6 @@ export default store
 export * from './user'
 export * from './matchdocs'
 export * from './matches'
+export * from './currentLocation'
 
 
