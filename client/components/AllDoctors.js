@@ -91,10 +91,10 @@ render() {
                     <CardStack
 	                  height={500}
                     width={400}
-	                  background='dodgerblue'
+	                  background='#c7b1c7'
 	                  hoverOffset={25}>
 
-                    <Card background='dodgerblue'>
+                    <Card background='#c7b1c7'>
                     <button
                     onClick={() => { onLove(i.$t,user.id); }}
                     >
@@ -119,7 +119,7 @@ render() {
                     
                     {data.insurances.length 
                       ? data.insurances.map(insurance => insurance.insurance_provider.name).join(', ')
-                      : <p>NO INSURANCE ACCEPTED</p> }
+                      : <h4>NO INSURANCE ACCEPTED</h4> }
                     
                     </Card>
                     </CardStack>    
