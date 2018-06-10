@@ -109,11 +109,16 @@ render() {
                       {data.practices[0].visit_address.street} <br></br>
                       {data.practices[0].visit_address.city}, {data.practices[0].visit_address.state} <br></br>
                     </p> 
-                    <span style={{ textDecoration: 'underline' }}> Bio </span>
-                    <p>{data.profile.bio.slice(0,200)+"..."}</p>
+                    <span style={{ textDecoration: 'underline' }}>Phone Number </span> 
+                    {data.practices[0].phones.length ?
+                       <p>{data.practices[0].phones[0].number}</p>
+                       :<p>None Provided</p>}
+                  <span style={{ textDecoration: 'underline' }}>Website </span> 
+                    {data.practices[0].website ? 
                     <a href={data.practices[0].website}>
                     <span>{data.practices[0].website}</span>
                     </a>
+                    : <p>None Provided</p>}
                     </Card>
 
                     <Card background='#8b9dc3'>
