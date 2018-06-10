@@ -65,7 +65,7 @@ render() {
   return (
     <div>
     <div className="all-doctors-container">
-    <h4> Please click "Get Current Location" button below before searching. </h4>
+    <h4> Click "Get Current Location" button below before searching. </h4>
     {
       this.state.geolocationOn
         ? <button className='geoLoc' onClick={(e) => {
@@ -96,7 +96,7 @@ render() {
 
                     <Card background='#c7b1c7'>
                     <button
-                    onClick={() => { onLove(i.$t,user.id); }}
+                    onClick={() => { onLove(data.uid,user.id); }}
                     >
                     Save Doctor Info 
                     </button>
