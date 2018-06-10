@@ -47,7 +47,7 @@ performSearch = (query) => {
   fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.state.latLng[0]},${this.state.latLng[1]}&key=AIzaSyCPlxbijQCwg2pLSN_B_j8V9nbptG65AVM`)
   .then((result) => {
     console.log(result)
-    return fetch(`https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=${query}&location=${this.state.latLng[0]},${this.state.latLng[1]},100&user_location=${this.state.latLng[0]},${this.state.latLng[1]}&skip=0&limit=2&user_key=6ffaf2f592ca4029cf614bb4bf313be5`); // make a 2nd request and return a promise
+    return fetch(`https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=${query}&location=${this.state.latLng[0]},${this.state.latLng[1]},100&user_location=${this.state.latLng[0]},${this.state.latLng[1]}&skip=0&limit=20&user_key=6ffaf2f592ca4029cf614bb4bf313be5`); // make a 2nd request and return a promise
   })
   .then(res => res.json())
   .then((res) => {
@@ -63,9 +63,9 @@ performSearch = (query) => {
 render() {
   const { onLove, user } = this.props
   return (
-    <div className="all-doctors-container">
     <div>
-    <h4> Click "Get Current Location" button below before searching. </h4>
+    <div className="all-doctors-container">
+    <h4> Please click "Get Current Location" button below before searching. </h4>
     {
       this.state.geolocationOn
         ? <button className='geoLoc' onClick={(e) => {
@@ -100,9 +100,8 @@ render() {
                     >
                     Save Doctor Info 
                     </button>
-                    <h3>{`BetterDoctor - ${data.profile.first_name}
+                    <h3 style={{ textDecoration: 'underline' }}>{`BetterDoctor - ${data.profile.first_name}
                     ${data.profile.last_name}`}, {`${data.profile.title}`} </h3> 
-                    {data.practices[0].website}
                     <img className="doc-image" src={data.profile.image_url} />
                     <br></br>
                     <span> Address </span>
@@ -111,12 +110,17 @@ render() {
                       {data.practices[0].visit_address.city}, {data.practices[0].visit_address.state} <br></br>
                     </p> 
                     <span> Bio </span>
-                    <p>{data.profile.bio.slice(0,400)+"..."}</p>
+                    <p>{data.profile.bio.slice(0,200)+"..."}</p>
+                    {data.practices[0].website}
                     </Card>
 
                     <Card background='#8b9dc3'>
-                    <h3> Accepted Insurances </h3>
-                    <h3> {data.insurances[0].insurance_provider.name}</h3>
+                    <h3 style={{ textDecoration: 'underline' }}> Accepted Insurances </h3>
+                    
+                    {data.insurances.length 
+                      ? data.insurances.map(insurance => insurance.insurance_provider.name).join(', ')
+                      : <p>NO INSURANCE ACCEPTED</p> }
+                    
                     </Card>
                     </CardStack>    
                       </li>
