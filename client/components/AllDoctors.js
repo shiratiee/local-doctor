@@ -83,14 +83,14 @@ render() {
   </div>
     <SearchBar onSearch={this.performSearch}/>  
       {
-        <div>
+        <div className="row">
               {this.state.doctors.map((data, i) => (
                 <div key ={i}>
                   <ul className="doctor">
                     <li>
                     <CardStack
 	                  height={500}
-                    width={400}
+                    width={280}
 	                  background='#c7b1c7'
 	                  hoverOffset={25}>
 
@@ -100,9 +100,10 @@ render() {
                     >
                     Save Doctor Info 
                     </button>
-                    <h3 style={{ textDecoration: 'underline' }}>{`BetterDoctor - ${data.profile.first_name}
-                    ${data.profile.last_name}`}, {`${data.profile.title}`} </h3> 
+                    <h3 style={{ textDecoration: 'underline' }}> {data.profile.first_name}
+                    {data.profile.last_name}, {data.profile.title} </h3> 
                     <img className="doc-image" src={data.profile.image_url} />
+                    <br></br>
                     <br></br>
                     <span style={{ textDecoration: 'underline' }}> Address </span>
                     <p>
@@ -112,11 +113,11 @@ render() {
                     <span style={{ textDecoration: 'underline' }}>Phone Number </span> 
                     {data.practices[0].phones.length ?
                        <p>{data.practices[0].phones[0].number}</p>
-                       :<p>None Provided</p>}
+                       : <p>None Provided</p>}
                   <span style={{ textDecoration: 'underline' }}>Website </span> 
                     {data.practices[0].website ? 
                     <a href={data.practices[0].website}>
-                    <span>{data.practices[0].website}</span>
+                    <p className="url">{data.practices[0].website}</p>
                     </a>
                     : <p>None Provided</p>}
                     </Card>

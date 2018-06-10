@@ -8,13 +8,21 @@ body {
   text-align: center;
 }
 
+  .row {
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+
   .doctor li {
     font-family: 'Lato', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-  }
+    flex-wrap: wrap;
+  } 
   .doc-image {
     margin-top: 10px;
     display:flex;
@@ -64,7 +72,8 @@ nav {
     margin: 7px 10px;
     margin-right: 40px;
     color: #8d1c8d;
-  }
+    text-decoration: none;
+  } 
 
   p {
     float: left;
@@ -76,6 +85,7 @@ nav {
   .padding {
     margin-top:20px;
   }
+
 
   h1 {
     text-decoration: none;
