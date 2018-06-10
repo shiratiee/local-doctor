@@ -76,6 +76,7 @@ nav {
 
 
   h1 {
+    text-decoration: none;
     background-color: #c7b1c7;
     font-family: 'Lato', sans-serif;
     color: #8d1c8d;

@@ -104,14 +104,16 @@ render() {
                     ${data.profile.last_name}`}, {`${data.profile.title}`} </h3> 
                     <img className="doc-image" src={data.profile.image_url} />
                     <br></br>
-                    <span> Address </span>
+                    <span style={{ textDecoration: 'underline' }}> Address </span>
                     <p>
                       {data.practices[0].visit_address.street} <br></br>
                       {data.practices[0].visit_address.city}, {data.practices[0].visit_address.state} <br></br>
                     </p> 
-                    <span> Bio </span>
+                    <span style={{ textDecoration: 'underline' }}> Bio </span>
                     <p>{data.profile.bio.slice(0,200)+"..."}</p>
-                    {data.practices[0].website}
+                    <a href={data.practices[0].website}>
+                    <span>{data.practices[0].website}</span>
+                    </a>
                     </Card>
 
                     <Card background='#8b9dc3'>
