@@ -127,7 +127,7 @@ render() {
                     
                     {data.insurances.length 
                       ? data.insurances.map(insurance => insurance.insurance_provider.name).join(', ').slice(0,790)+"..."
-                      : <h3>NO INSURANCE ACCEPTED</h3> }
+                      : <span>No insurance listed. Contact doctor for more information.</span> }
                     
                     </Card>
                     </CardStack>    
