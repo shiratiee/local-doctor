@@ -126,8 +126,8 @@ render() {
                     <h3 style={{ textDecoration: 'underline' }}> Accepted Insurances </h3>
                     
                     {data.insurances.length 
-                      ? data.insurances.map(insurance => insurance.insurance_provider.name).join(', ')
-                      : <h4>NO INSURANCE ACCEPTED</h4> }
+                      ? data.insurances.map(insurance => insurance.insurance_provider.name).join(', ').slice(0,790)+"..."
+                      : <h3>NO INSURANCE ACCEPTED</h3> }
                     
                     </Card>
                     </CardStack>    
