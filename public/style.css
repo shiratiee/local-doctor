@@ -120,14 +120,13 @@ nav {
 
 }
 
-
 input {
   width: 64%;
   height: 45px;
-  margin-bottom: 0px !important;
+  margin-bottom: 0px !important; 
   font-size: 18px;
   border: black 1px solid;
-  padding-left: 3% !important;
+  padding-left: 3% !important; 
 }
 
 button {

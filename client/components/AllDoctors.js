@@ -116,9 +116,7 @@ render() {
                        : <p>None Provided</p>}
                   <span style={{ textDecoration: 'underline' }}>Website </span> 
                     {data.practices[0].website ? 
-                    <a href={data.practices[0].website}>
-                    <p className="url">{data.practices[0].website}</p>
-                    </a>
+                   <p> <a href={data.practices[0].website}> Click here for website</a></p>
                     : <p>None Provided</p>}
                     </Card>
 
