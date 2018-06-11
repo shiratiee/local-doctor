@@ -71,9 +71,12 @@ nav {
     display: inline-block;
     margin: 7px 10px;
     margin-right: 40px;
-    color: #8d1c8d;
+    color: #f195f1;
     text-decoration: none;
   } 
+  a:hover{
+    text-decoration: underline;
+  }
 
   p {
     float: left;
