@@ -12,7 +12,8 @@ constructor(props) {
      this.state = {
       doctors :[],
       latLng: [],
-      geolocationOn: false
+      geolocationOn: false, 
+      // loading: false
         }
         this.getLocation = this.getLocation.bind(this);
         this.showPosition = this.showPosition.bind(this);
@@ -33,8 +34,10 @@ constructor(props) {
       var longitude = position.coords.longitude;
       this.setState({
         latLng: [latitude, longitude]
+        
       });
       this.props.onLocation(this.state.latLng[0], this.state.latLng[1]);
+      // setInterval(() => this.setState({ loading: true }), 5000);
     }
   
     errorHandler(err) {
@@ -58,12 +61,12 @@ performSearch = (query) => {
     console.log('Request failed', error)
   })
 }
-  
+
   
 render() {
-  const { onLove, user } = this.props
+  const { onLove, user, loading } = this.props
   return (
-    <div>
+    <div className="loader">
     <div className="all-doctors-container">
     <h4> Click "Get Current Location" button below before searching. </h4>
     {
@@ -80,6 +83,7 @@ render() {
             Get Current Location
           </button>
     }
+    {loading ? <LoadingSpinner /> : <span></span> }
   </div>
     <SearchBar onSearch={this.performSearch}/>  
       {

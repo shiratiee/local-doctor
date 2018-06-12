@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 export default class SearchBar extends Component {
   state = {
     searchText: '',
-    searchZipcode: ''
   }
 
   onSearchChange = e => {
@@ -16,7 +15,7 @@ export default class SearchBar extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSearch(this.state.searchText, this.state.searchZipcode);
+    this.props.onSearch(this.state.searchText);
     e.currentTarget.reset();
   }
 
