@@ -12,8 +12,7 @@ constructor(props) {
      this.state = {
       doctors :[],
       latLng: [],
-      geolocationOn: false, 
-      // loading: false
+      geolocationOn: false
         }
         this.getLocation = this.getLocation.bind(this);
         this.showPosition = this.showPosition.bind(this);
@@ -37,7 +36,6 @@ constructor(props) {
         
       });
       this.props.onLocation(this.state.latLng[0], this.state.latLng[1]);
-      // setTimeout(() => this.setState({ loading: true }), 1500);
     }
   
     errorHandler(err) {
