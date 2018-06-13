@@ -37,7 +37,7 @@ constructor(props) {
         
       });
       this.props.onLocation(this.state.latLng[0], this.state.latLng[1]);
-      // setInterval(() => this.setState({ loading: true }), 5000);
+      // setTimeout(() => this.setState({ loading: true }), 1500);
     }
   
     errorHandler(err) {
@@ -66,7 +66,7 @@ performSearch = (query) => {
 render() {
   const { onLove, user, loading } = this.props
   return (
-    <div className="loader">
+    <div>
     <div className="all-doctors-container">
     <h4> Click "Get Current Location" button below before searching. </h4>
     {
@@ -83,7 +83,6 @@ render() {
             Get Current Location
           </button>
     }
-    {loading ? <LoadingSpinner /> : <span></span> }
   </div>
     <SearchBar onSearch={this.performSearch}/>  
       {
