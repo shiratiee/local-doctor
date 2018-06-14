@@ -45,7 +45,7 @@ constructor(props) {
 
 
 performSearch = (query) => { 
-  fetch(`https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=${query}&location=${this.state.latLng[0]},${this.state.latLng[1]},100&user_location=${this.state.latLng[0]},${this.state.latLng[1]}&skip=0&limit=20&user_key=6ffaf2f592ca4029cf614bb4bf313be5`) // make a 2nd request and return a promise
+  fetch(`https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=${query}&location=${this.state.latLng[0]},${this.state.latLng[1]},100&user_location=${this.state.latLng[0]},${this.state.latLng[1]}&skip=0&limit=20&user_key=6ffaf2f592ca4029cf614bb4bf313be5`) 
   .then(res => res.json())
   .then((res) => {
     console.log(res)
@@ -58,7 +58,7 @@ performSearch = (query) => {
 
   
 render() {
-  const { onLove, user, loading } = this.props
+  const { onLove, user } = this.props
   return (
     <div>
     <div className="all-doctors-container">
