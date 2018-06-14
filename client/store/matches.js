@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { fetchDocById, removeUnmatchedDocs } from './matchdocs';
+import { fetchDocById, removeUnmatchedDocs } from './';
 
 // ACTION TYPES
 

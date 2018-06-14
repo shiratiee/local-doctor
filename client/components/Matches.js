@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import FontAwesome from 'react-fontawesome';
-import { unMatch } from '../store';
+import { unMatch, fetchMatches } from '../store';
 import { CardStack, Card } from 'react-cardstack';
 import { connect } from 'react-redux';
 
@@ -70,6 +70,9 @@ const mapState = state => ({
 });
 
 const mapDispatch = dispatch => ({
+  loadMatches(id) {
+    dispatch(fetchMatches(id));
+  },
   onUnmatch(doc, userId) {
     if (window.confirm(`Are you sure you want to delete ${doc.name.$t}?`))
       dispatch(unMatch(doc.id.$t, userId));
