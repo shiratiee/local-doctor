@@ -9,7 +9,7 @@ import matches from './matches'
 import currentLocation from './currentLocation'
 
 
-const reducer = combineReducers({user, currentLocation})
+const reducer = combineReducers({user, currentLocation, matches, matchdocs})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )

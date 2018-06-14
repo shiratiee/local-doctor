@@ -92,11 +92,6 @@ render() {
 	                  hoverOffset={25}>
 
                     <Card background='#c7b1c7'>
-                    <button
-                    onClick={() => { onLove(data.uid,user.id); }}
-                    >
-                    Save Doctor Info 
-                    </button>
                     <h3 style={{ textDecoration: 'underline' }}> {data.profile.first_name}
                     {data.profile.last_name}, {data.profile.title} </h3> 
                     <img className="doc-image" src={data.profile.image_url} />
