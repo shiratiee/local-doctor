@@ -13,10 +13,9 @@ class Matches extends Component {
         <h1>Matches</h1>
         <div className="matchesList">
           {this.props.matches.length ?
-              this.props.matchDocs.map(data => { 
+              this.props.matches.map(data => { 
                 return ( 
-                docId &&
-                <div key={doc.id.$t} className="matches docCard">
+                <div key={data.uid} className="matches docCard">
                 <CardStack
                 height={500}
                 width={280}
@@ -66,7 +65,7 @@ class Matches extends Component {
 const mapState = state => ({
   user: state.user,
   matches: state.matches,
-  matchDocs: state.matchDocs,
+  matchDocs: state.matchDocs
 });
 
 const mapDispatch = dispatch => ({

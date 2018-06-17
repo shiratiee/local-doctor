@@ -1,52 +1,55 @@
-import axios from 'axios'
-import history from '../history'
+import axios from 'axios';
 
-/**
- * ACTION TYPES
- */
-const GET_USER = 'GET_USER'
-const REMOVE_USER = 'REMOVE_USER'
+// ACTION TYPES
+const GET_USER = 'GET_USER';
+const LOGOUT_USER = 'LOGOUT_USER';
 
-/**
- * INITIAL STATE
- */
-const defaultUser = {}
+// INITIAL STATE
+const defaultUser = {};
 
-/**
- * ACTION CREATORS
- */
-const getUser = user => ({type: GET_USER, user})
-const removeUser = () => ({type: REMOVE_USER})
+// ACTION CREATORS
+const getUser = user => ({
+  type: GET_USER,
+  user
+});
+const logOutUser = () => ({
+  type: LOGOUT_USER
+});
 
-/**
- * THUNK CREATORS
- */
+// THUNK CREATORS
 export const me = () =>
   dispatch =>
-    axios.get('/auth/me')
-      .then(res =>
-        dispatch(getUser(res.data || defaultUser)))
-      .catch(err => console.log(err))
+  axios.get('/auth/me')
+  .then(res =>
+    dispatch(getUser(res.data || defaultUser)))
+  .catch(err => console.log(err));
 
 export const auth = (email, password, method) =>
   dispatch =>
-    axios.post(`/auth/${method}`, { email, password })
-      .then(res => {
-        dispatch(getUser(res.data))
-        history.push('/home')
-      }, authError => { // rare example: a good use case for parallel (non-catch) error handler
-        dispatch(getUser({error: authError}))
-      })
-      .catch(dispatchOrHistoryErr => console.error(dispatchOrHistoryErr))
+  axios.post(`/auth/${method}`, {
+    email,
+    password
+  })
+  .then((res) => {
+    dispatch(getUser(res.data));
+    if(res.data){
+      return res.data.id
+    }
+  })
+  .catch(error =>
+    dispatch(getUser({
+      error
+    })));
 
 export const logout = () =>
-  dispatch =>
+  (dispatch) => {
     axios.post('/auth/logout')
-      .then(_ => {
-        dispatch(removeUser())
-        history.push('/')
+      .then((_) => {
+        dispatch(logOutUser());
+        localStorage.clear();
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
+  };
 
 /**
  * REDUCER
@@ -54,10 +57,10 @@ export const logout = () =>
 export default function currentUser(state = defaultUser, action) {
   switch (action.type) {
     case GET_USER:
-      return action.user
-    case REMOVE_USER:
-      return defaultUser
+      return action.user;
+    case LOGOUT_USER:
+      return defaultUser;
     default:
-      return state
+      return state;
   }
 }
