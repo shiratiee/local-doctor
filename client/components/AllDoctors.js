@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar'
 import { CardStack, Card } from 'react-cardstack';
 import {fetchMatches, addMatches } from '../store';
+const Loading = require('react-loading-animation');
 
 
 class AllDoctors extends React.Component { 
@@ -71,7 +72,7 @@ render() {
     {
       this.state.geolocationOn
         ?  this.state.loading ?
-            <span>loading...</span> : <span></span>
+            <Loading/> : <span></span>
           : <button className='geoLoc' onClick={(e) => {
               e.preventDefault();
               this.getLocation();
