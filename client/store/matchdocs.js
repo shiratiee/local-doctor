@@ -1,4 +1,3 @@
-import axios from 'axios'
 
 // ACTION TYPES
 
@@ -17,14 +16,22 @@ const removedUnmatchData = () => ({
 })
 
 // THUNK
+
+
+
 export const fetchDocById = (docId) =>
+
   dispatch => {
-    axios.get(`https://api.betterdoctor.com/2016-03-01/doctors/${docId}?user_key=6ffaf2f592ca4029cf614bb4bf313be5`,
+    fetch(`https://api.betterdoctor.com/2016-03-01/doctors/${docId}?user_key=6ffaf2f592ca4029cf614bb4bf313be5`,
     {
-      'Cache-Control': 'no-cache',
-      pragma: 'no-cache',
-      dataType: 'jsonp'
-    }) 
+      mode: 'no-cors',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(res => res.json())
       .then((res) => {
         dispatch(fetchOneDocById(res.data));
       })
