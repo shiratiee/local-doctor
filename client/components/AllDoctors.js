@@ -64,7 +64,10 @@ render() {
   return (
     <div>
     <div className="all-doctors-container">
+    { !this.state.latLng ?
     <h4> Click "Get Current Location" button below before searching. </h4>
+    : <span></span>
+    }
     {
       this.state.geolocationOn
         ?  this.state.loading ?
@@ -138,7 +141,6 @@ render() {
 
 
 const mapState = state => ({
-  // currentLocation: state.currentLocation,
   user: state.user
 })
 
@@ -149,9 +151,6 @@ const mapDispatch = dispatch => ({
   onLocation(lat, lng) {
     console.log('LAT', lat, 'LNG', lng)
   },
-  // onTurnOff(lat,lng) {
-  //   dispatch(removeCurrentLocation());
-  // },
   onLove(docId, userId) {
     console.log('docId', docId, 'userId', userId)
     dispatch(addMatches(docId, userId));
