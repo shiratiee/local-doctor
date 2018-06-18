@@ -72,7 +72,7 @@ render() {
     {
       this.state.geolocationOn
         ?  this.state.loading ?
-            <Loading/> : <span></span>
+            <Loading/> : <SearchBar onSearch={this.performSearch}/>  
           : <button className='geoLoc' onClick={(e) => {
               e.preventDefault();
               this.getLocation();
@@ -81,7 +81,6 @@ render() {
           </button>
     }
   </div>
-    <SearchBar onSearch={this.performSearch}/>  
       {
         <div className="row">
               {this.state.doctors.map((data, i) => (
