@@ -65,7 +65,7 @@ render() {
   return (
     <div>
     <div className="all-doctors-container">
-    { !this.state.latLng ?
+    { !this.state.geolocationOn ?
     <h4> Click "Get Current Location" button below before searching. </h4>
     : <span></span>
     }
