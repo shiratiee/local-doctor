@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar'
 import { CardStack, Card } from 'react-cardstack';
-import {getCurrentZipcode, removeCurrentLocation, fetchMatches, addMatches } from '../store';
+import {fetchMatches, addMatches } from '../store';
 
 
 class AllDoctors extends React.Component { 
@@ -12,7 +12,8 @@ constructor(props) {
      this.state = {
       doctors :[],
       latLng: [],
-      geolocationOn: false
+      geolocationOn: false,
+      loading: false
         }
         this.getLocation = this.getLocation.bind(this);
         this.showPosition = this.showPosition.bind(this);
@@ -22,7 +23,7 @@ constructor(props) {
      getLocation() {
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(this.showPosition, this.errorHandler)
-        this.setState({geolocationOn: true});
+        this.setState({geolocationOn: true, loading: true});
       } else {
         console.log('geolocation IS NOT available');
       }
@@ -32,7 +33,8 @@ constructor(props) {
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
       this.setState({
-        latLng: [latitude, longitude]
+        latLng: [latitude, longitude],
+        loading: false
         
       });
       this.props.onLocation(this.state.latLng[0], this.state.latLng[1]);
@@ -65,11 +67,8 @@ render() {
     <h4> Click "Get Current Location" button below before searching. </h4>
     {
       this.state.geolocationOn
-        ? <button className='geoLoc' onClick={(e) => {
-              e.preventDefault();
-              this.setState({geolocationOn: false});
-              this.props.onTurnOff();
-            }}>Turn Off Current Location</button>
+        ?  this.state.loading ?
+            <span>loading...</span> : <span></span>
           : <button className='geoLoc' onClick={(e) => {
               e.preventDefault();
               this.getLocation();
@@ -139,7 +138,7 @@ render() {
 
 
 const mapState = state => ({
-  currentLocation: state.currentLocation,
+  // currentLocation: state.currentLocation,
   user: state.user
 })
 
@@ -150,9 +149,9 @@ const mapDispatch = dispatch => ({
   onLocation(lat, lng) {
     console.log('LAT', lat, 'LNG', lng)
   },
-  onTurnOff(lat,lng) {
-    dispatch(removeCurrentLocation());
-  },
+  // onTurnOff(lat,lng) {
+  //   dispatch(removeCurrentLocation());
+  // },
   onLove(docId, userId) {
     console.log('docId', docId, 'userId', userId)
     dispatch(addMatches(docId, userId));
