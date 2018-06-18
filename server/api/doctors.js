@@ -12,7 +12,7 @@ module.exports = router;
 //   .then(res => res.json())
 //   .then((res) => {
 //       console.log(res);
-//       res.json(res.data.specialities.uid);
+//       res.json(res.data.uid);
 //       res.end();
 //     }).catch(next);
 // });

@@ -19,7 +19,12 @@ const removedUnmatchData = () => ({
 // THUNK
 export const fetchDocById = (docId) =>
   dispatch => {
-    axios.get(`https://api.betterdoctor.com/2016-03-01/doctors/${docId}?user_key=6ffaf2f592ca4029cf614bb4bf313be5`)
+    axios.get(`https://api.betterdoctor.com/2016-03-01/doctors/${docId}?user_key=6ffaf2f592ca4029cf614bb4bf313be5`,
+    {
+      'Cache-Control': 'no-cache',
+      pragma: 'no-cache',
+      dataType: 'jsonp'
+    }) 
       .then((res) => {
         dispatch(fetchOneDocById(res.data));
       })
