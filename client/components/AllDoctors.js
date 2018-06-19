@@ -48,11 +48,12 @@ constructor(props) {
 
 
 performSearch = (query) => { 
+  this.setState({loading: true})
   fetch(`https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=${query}&location=${this.state.latLng[0]},${this.state.latLng[1]},100&user_location=${this.state.latLng[0]},${this.state.latLng[1]}&skip=0&limit=20&user_key=6ffaf2f592ca4029cf614bb4bf313be5`)
-  .then(res => res.json())
+  .then(res =>res.json())
   .then((res) => {
     console.log(res)
-    this.setState({doctors: res.data})
+    this.setState({doctors: res.data, loading: false})
   })
   .catch((error) => {
     console.log('Request failed', error)
@@ -81,9 +82,12 @@ render() {
           </button>
     }
   </div>
+  
       {
         <div className="row">
-              {this.state.doctors.map((data, i) => (
+      { 
+              this.state.doctors.map((data, i) => (
+                
                 <div key ={i}>
                   <ul className="doctor">
                     <li>
@@ -130,12 +134,17 @@ render() {
                     </CardStack>    
                       </li>
                     </ul>  
+                    
                 </div>
-              ))}
+              ))
+          }
             </div>
           }
+        
         </div>
+        
       );
+    
     }
   }
 
