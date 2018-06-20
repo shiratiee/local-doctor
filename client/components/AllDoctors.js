@@ -14,7 +14,8 @@ constructor(props) {
       doctors :[],
       latLng: [],
       geolocationOn: false,
-      loading: false
+      loading: false,
+      nomatch: false,
         }
         this.getLocation = this.getLocation.bind(this);
         this.showPosition = this.showPosition.bind(this);
@@ -53,7 +54,9 @@ performSearch = (query) => {
   .then(res =>res.json())
   .then((res) => {
     console.log(res)
-    this.setState({doctors: res.data, loading: false})
+    this.setState({doctors: res.data,loading: false})
+    console.log(this.state.doctors)
+    res.data.length ? this.setState({nomatch: false}) : this.setState({nomatch: true})
   })
   .catch((error) => {
     console.log('Request failed', error)
@@ -82,12 +85,11 @@ render() {
           </button>
     }
   </div>
-  
-      {
+ 
+      {  
         <div className="row">
-      { 
+       {    !this.state.nomatch ?
               this.state.doctors.map((data, i) => (
-                
                 <div key ={i}>
                   <ul className="doctor">
                     <li>
@@ -137,6 +139,7 @@ render() {
                     
                 </div>
               ))
+              : <p>NO RESULTS FOUND! TRY ANOTHER SEARCH.</p>
           }
             </div>
           }
