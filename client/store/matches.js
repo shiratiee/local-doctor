@@ -26,8 +26,8 @@ export const fetchMatches = userId =>
     axios.get(`/api/match/${userId}`)
       .then(res =>
         dispatch(getMatches(res.data)))
-        .then(results => results.matches.map( doc => dispatch(fetchDocById(doc.docId))))
-      .catch(err => console.log(err));
+        .then(results => results.matches.map(doc => dispatch(fetchDocById(doc.docId))))
+        .catch(err => console.log(err));
 
 export const addMatches = (docId, userId) =>
   dispatch =>
