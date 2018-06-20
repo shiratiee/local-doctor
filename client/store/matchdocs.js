@@ -19,7 +19,9 @@ const removedUnmatchData = () => ({
 // THUNK
 export const fetchDocById = (docId) =>
   dispatch => {
-    axios.get(`https://api.betterdoctor.com/2016-03-01/doctors/${docId}?user_key=6ffaf2f592ca4029cf614bb4bf313be5`)
+    fetch(`https://cors-anywhere.herokuapp.com/https://api.betterdoctor.com/2016-03-01/doctors/${docId}?user_key=6ffaf2f592ca4029cf614bb4bf313be5`,
+    {headers: {'Access-Control-Allow-Origin': '*'}})
+    .then(res => res.json())
       .then((res) => {
         dispatch(fetchOneDocById(res.data));
       })
