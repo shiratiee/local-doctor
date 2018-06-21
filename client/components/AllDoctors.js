@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar'
 import { CardStack, Card } from 'react-cardstack';
-import {getCurrentZipcode, removeCurrentLocation, fetchMatches, addMatches } from '../store';
+import {fetchMatches, addMatches } from '../store';
+const Loading = require('react-loading-animation');
 
 
 class AllDoctors extends React.Component { 
@@ -12,7 +13,9 @@ constructor(props) {
      this.state = {
       doctors :[],
       latLng: [],
-      geolocationOn: false
+      geolocationOn: false,
+      loading: false,
+      nomatch: false,
         }
         this.getLocation = this.getLocation.bind(this);
         this.showPosition = this.showPosition.bind(this);
@@ -22,7 +25,7 @@ constructor(props) {
      getLocation() {
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(this.showPosition, this.errorHandler)
-        this.setState({geolocationOn: true});
+        this.setState({geolocationOn: true, loading: true});
       } else {
         console.log('geolocation IS NOT available');
       }
@@ -32,7 +35,8 @@ constructor(props) {
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
       this.setState({
-        latLng: [latitude, longitude]
+        latLng: [latitude, longitude],
+        loading: false
         
       });
       this.props.onLocation(this.state.latLng[0], this.state.latLng[1]);
@@ -45,11 +49,14 @@ constructor(props) {
 
 
 performSearch = (query) => { 
+  this.setState({loading: true})
   fetch(`https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=${query}&location=${this.state.latLng[0]},${this.state.latLng[1]},100&user_location=${this.state.latLng[0]},${this.state.latLng[1]}&skip=0&limit=20&user_key=6ffaf2f592ca4029cf614bb4bf313be5`)
-  .then(res => res.json())
+  .then(res =>res.json())
   .then((res) => {
     console.log(res)
-    this.setState({doctors: res.data})
+    this.setState({doctors: res.data,loading: false})
+    console.log(this.state.doctors)
+    res.data.length ? this.setState({nomatch: false}) : this.setState({nomatch: true})
   })
   .catch((error) => {
     console.log('Request failed', error)
@@ -62,14 +69,14 @@ render() {
   return (
     <div>
     <div className="all-doctors-container">
+    { !this.state.geolocationOn ?
     <h4> Click "Get Current Location" button below before searching. </h4>
+    : <span></span>
+    }
     {
       this.state.geolocationOn
-        ? <button className='geoLoc' onClick={(e) => {
-              e.preventDefault();
-              this.setState({geolocationOn: false});
-              this.props.onTurnOff();
-            }}>Turn Off Current Location</button>
+        ?  this.state.loading ?
+            <Loading/> : <SearchBar onSearch={this.performSearch}/>  
           : <button className='geoLoc' onClick={(e) => {
               e.preventDefault();
               this.getLocation();
@@ -78,10 +85,11 @@ render() {
           </button>
     }
   </div>
-    <SearchBar onSearch={this.performSearch}/>  
-      {
+ 
+      {  
         <div className="row">
-              {this.state.doctors.map((data, i) => (
+       {    !this.state.nomatch ?
+              this.state.doctors.map((data, i) => (
                 <div key ={i}>
                   <ul className="doctor">
                     <li>
@@ -128,18 +136,23 @@ render() {
                     </CardStack>    
                       </li>
                     </ul>  
+                    
                 </div>
-              ))}
+              ))
+              : <p>NO RESULTS FOUND! TRY ANOTHER SEARCH.</p>
+          }
             </div>
           }
+        
         </div>
+        
       );
+    
     }
   }
 
 
 const mapState = state => ({
-  currentLocation: state.currentLocation,
   user: state.user
 })
 
@@ -150,9 +163,6 @@ const mapDispatch = dispatch => ({
   onLocation(lat, lng) {
     console.log('LAT', lat, 'LNG', lng)
   },
-  onTurnOff(lat,lng) {
-    dispatch(removeCurrentLocation());
-  },
   onLove(docId, userId) {
     console.log('docId', docId, 'userId', userId)
     dispatch(addMatches(docId, userId));
@@ -160,5 +170,3 @@ const mapDispatch = dispatch => ({
 });
 
 export default connect(mapState, mapDispatch)(AllDoctors);
-
-  
