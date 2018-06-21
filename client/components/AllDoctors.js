@@ -165,7 +165,8 @@ const mapDispatch = dispatch => ({
   },
   onLove(docId, userId) {
     console.log('docId', docId, 'userId', userId)
-    dispatch(addMatches(docId, userId));
+    if (!userId) window.confirm('You must login to save doctor information')
+    else dispatch(addMatches(docId, userId));
   }
 });
 
