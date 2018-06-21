@@ -13,10 +13,10 @@ class Matches extends Component {
         <h1>Matches</h1>
         <div className="row">
           {this.props.matches.length ?
-              this.props.matchdocs.map((data) => { 
+              this.props.matchdocs.map((data, i) => { 
                 console.log(this.props.matchdocs, "THISSSS")
                 return ( 
-                <div key={`${data.uid}`}>
+                <div key={i}>
                 <ul className="doctor">
                 <li>
                 <CardStack
