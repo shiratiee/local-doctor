@@ -92,7 +92,7 @@ const mapDispatch = (dispatch, ownProps) => ({
     evt.preventDefault();
     const email = evt.target.email.value;
     const password = evt.target.password.value;
-    const redirect = type === 'login' ? '/' : '/signup';
+    const redirect = type === 'login' ? '/' : '/';
     Promise.resolve(dispatch(auth(email, password, type))).then((res) => {
       ownProps.history.push(redirect)
       dispatch(fetchMatches(res))
