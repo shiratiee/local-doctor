@@ -11,12 +11,14 @@ class Matches extends Component {
     return (
       <div>
         <h1>Matches</h1>
-        <div className="matchesList">
+        <div className="row">
           {this.props.matches.length ?
               this.props.matchdocs.map((data) => { 
                 console.log(this.props.matchdocs, "THISSSS")
                 return ( 
-                <div key={`${data.uid}`} className="matches docCard">
+                <div key={`${data.uid}`}>
+                <ul className="doctor">
+                <li>
                 <CardStack
                 height={500}
                 width={280}
@@ -24,6 +26,13 @@ class Matches extends Component {
                 hoverOffset={25}>
 
                 <Card background='#c7b1c7'>
+                <button	
+                onClick={(event) => {
+                  event.preventDefault(); this.props.onUnmatch(pet, this.props.user.id);
+                  }}
+                    >	
+                    X	
+                    </button>
                 <h3 style={{ textDecoration: 'underline' }}> {data.data.profile.first_name}
                 {data.data.profile.last_name}, {data.data.profile.title} </h3> 
                 <img className="doc-image" src={data.data.profile.image_url} />
@@ -53,6 +62,8 @@ class Matches extends Component {
                 
                 </Card>
                 </CardStack>    
+                </li>
+                </ul>  
                 </div>
                 
                 )
@@ -78,8 +89,8 @@ const mapDispatch = dispatch => ({
     dispatch(fetchMatches(id));
   },
   onUnmatch(doc, userId) {
-    if (window.confirm(`Are you sure you want to delete ${doc.name.$t}?`))
-      dispatch(unMatch(doc.id.$t, userId));
+    if (window.confirm(`Are you sure you want to delete ${data.data.profile.first_name}?`))
+      dispatch(unMatch(data.uid, userId));
   }
 });
 

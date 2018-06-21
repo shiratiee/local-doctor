@@ -6,9 +6,9 @@ const REMOVE_UNMATCHES = 'REMOVE_UNMATCHES';
 
 // ACTION CREATORS
 
-const fetchOneDocById = (docId) => ({
+const fetchOneDocById = (doc) => ({
   type: FETCH_DOC_BY_ID,
-  docId
+  doc
 });
 
 const removedUnmatchData = () => ({
