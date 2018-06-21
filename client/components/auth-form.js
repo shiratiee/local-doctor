@@ -9,25 +9,17 @@ const AuthForm = (props) => {
   const { handleSubmit } = props;
   let type;
   return (
-    <div className="splash">
-      <div className="form animated flipInX login-html">
-        <div className="img-container">
-        </div>
-        <input id="tab-1" type="radio" name="tab" className="sign-in" defaultChecked />
-        <label htmlFor="tab-1" className="tab">Log In</label>
-        <input id="tab-2" type="radio" name="tab" className="sign-up" />
-        <label htmlFor="tab-2" className="tab">Sign Up</label>
-        <div className="login-form">
-          <div className="sign-in-htm">
+    <div className='main-auth'>
+      <div className="auth-form">
           {/*login form*/}
             <form onSubmit={event => handleSubmit(event, type)}>
-              <div className="group">
+              <div>
                 <label htmlFor="email">
                   <small>Email</small>
                 </label>
                 <input name="email" type="text" />
               </div>
-              <div className="group">
+              <div>
                 <label htmlFor="password">
                   <small>Password</small>
                 </label>
@@ -45,39 +37,29 @@ const AuthForm = (props) => {
 
               </div>
             </form>
-            {/*login form with google*/}
-            <div className="social-container">
-              <span>or Log in with </span>
-              <a href="/auth/google" >
-                <FontAwesome name="google" className="social google" />
-              </a>
-              <a href="/auth/facebook">
-                <FontAwesome name="facebook" className="social facebook" />
-              </a>
-            </div>
           </div>
-          <div className="sign-up-htm">
+          <div className="auth-form">
           {/*signup form */}
             <form onSubmit={event => handleSubmit(event, type)}>
-              <div className="group">
+              <div>
                 <label htmlFor="email">
                   <small>Email</small>
                 </label>
                 <input name="email" type="text" />
               </div>
-              <div className="group">
+              <div>
                 <label htmlFor="password">
                   <small>Password</small>
                 </label>
                 <input name="password" type="password" />
               </div>
-              <div className="group">
+              <div>
                 <label htmlFor="password">
                   <small>Verify Password</small>
                 </label>
                 <input name="password" type="password" />
               </div>
-              <div className="group">
+              <div>
                 <button
                   type="submit"
                   onClick={() => {
@@ -87,24 +69,9 @@ const AuthForm = (props) => {
                   Sign Up
                 </button>
               </div>
-              {/* error && error.response && <div> {error.response.data} </div> */}
-              <div className="social-container">
-              <span>or Sign up with </span>
-              <a href="/auth/google" >
-                <FontAwesome name="google" className="social google" />
-              </a>
-              <a href="/auth/facebook" >
-                <FontAwesome
-                  name="facebook"
-                  className="social facebook"
-                />
-              </a>
-            </div>
             </form>        
           </div>
-        </div>
       </div>
-    </div>
   );
 };
 

@@ -119,8 +119,16 @@ nav {
   position: relative;
   margin: auto;
   margin-top: 70px;
+  margin-right:70px;
+  margin-left:70px;
   box-shadow: rgba(105, 105, 105, 0.23) 4px 4px 17px;
 
+}
+
+.main-auth{
+  text-align:center;
+  display:flex;
+  flex-direction: row;
 }
 
 input {
