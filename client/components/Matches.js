@@ -71,7 +71,7 @@ class Matches extends Component {
 
               })
                 
-              : <p>NO MATCHES!</p>
+              : <h2 className="no-match">NO MATCHES!</h2>
           }
         </div>
       </div>

@@ -32,6 +32,12 @@ body {
     width: 110px;
   }
 
+  .no-match {
+    text-indent: 80px;
+    margin-top:10 px;
+    font-family: 'Lato', sans-serif;
+  }
+
   /* .geoLoc {
     position: relative;
     border-radius: 15px;
