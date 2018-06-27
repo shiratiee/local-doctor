@@ -7,7 +7,6 @@ import user from './user'
 import matchdocs from './matchdocs'
 import matches from './matches'
 
-
 const reducer = combineReducers({user, matches, matchdocs})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
