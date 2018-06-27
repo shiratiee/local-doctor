@@ -157,9 +157,6 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-  loadMatches(id) {
-    dispatch(fetchMatches(id));
-  },
   onLocation(lat, lng) {
     console.log('LAT', lat, 'LNG', lng)
   },

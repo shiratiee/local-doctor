@@ -101,6 +101,21 @@ nav {
     padding: 8px 0px 13px 0px;
   }
 
+
+  .matches {
+    text-indent: 46px;
+    font-size: 30px;
+    text-decoration: underline;
+    padding-left:45%;
+    font-family: 'Lato', sans-serif;
+    align-items:center;
+    text-align: center;
+    display: flex;
+    color: purple;
+    position: relative;
+    margin: auto;
+  }
+
   h4 {
     font-family: 'Lato', sans-serif;
   }

@@ -10,7 +10,7 @@ class Matches extends Component {
   render() {
     return (
       <div>
-        <h1>Matches</h1>
+        <h2 className="matches">Matches</h2>
         <div className="row">
           {this.props.matches.length ?
               this.props.matchdocs.map((data, i) => { 
