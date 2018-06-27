@@ -11,7 +11,19 @@ const reducer = combineReducers({user, matches, matchdocs})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
-const store = createStore(reducer, middleware)
+const persistedState = localStorage.getItem('store') ? JSON.parse(localStorage.getItem('store')) : {};
+
+const rootReducer = (state, action) => {
+  if (action.type === 'LOGOUT_USER') {
+    state = undefined;
+  }
+  return reducer(state, action)
+}
+
+const store = createStore(rootReducer, persistedState, middleware);
+
+store.subscribe(() => localStorage.setItem('store', JSON.stringify(store.getState())));
+
 
 export default store
 export * from './user'

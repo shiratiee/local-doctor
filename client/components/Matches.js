@@ -10,13 +10,15 @@ class Matches extends Component {
   render() {
     return (
       <div>
-        <h1>Matches</h1>
-        <div className="matchesList">
+        <h2 className="matches">Matches</h2>
+        <div className="row">
           {this.props.matches.length ?
-              this.props.matchDocs.map(data => { 
+              this.props.matchdocs.map((data, i) => { 
+                console.log(this.props.matchdocs, "THISSSS")
                 return ( 
-                docId &&
-                <div key={doc.id.$t} className="matches docCard">
+                <div key={i}>
+                <ul className="doctor">
+                <li>
                 <CardStack
                 height={500}
                 width={280}
@@ -24,37 +26,51 @@ class Matches extends Component {
                 hoverOffset={25}>
 
                 <Card background='#c7b1c7'>
-                <h3 style={{ textDecoration: 'underline' }}> {data.profile.first_name}
-                {data.profile.last_name}, {data.profile.title} </h3> 
-                <img className="doc-image" src={data.profile.image_url} />
+                <button	
+                onClick={(event) => {
+                  event.preventDefault(); 
+                  this.props.onUnmatch(data.uid, this.props.user.id);
+                  }}
+                    >	
+                    X	
+                    </button>
+                <h3 style={{ textDecoration: 'underline' }}> {data.data.profile.first_name}
+                {data.data.profile.last_name}, {data.data.profile.title} </h3> 
+                <img className="doc-image" src={data.data.profile.image_url} />
                 <br></br>
                 <br></br>
                 <span style={{ textDecoration: 'underline' }}> Address </span>
                 <p>
-                  {data.practices[0].visit_address.street} <br></br>
-                  {data.practices[0].visit_address.city}, {data.practices[0].visit_address.state} <br></br>
+                  {data.data.practices[0].visit_address.street} <br></br>
+                  {data.data.practices[0].visit_address.city}, {data.data.practices[0].visit_address.state} <br></br>
                 </p> 
                 <span style={{ textDecoration: 'underline' }}>Phone Number </span> 
-                {data.practices[0].phones.length ?
-                   <p>{data.practices[0].phones[0].number}</p>
+                {data.data.practices[0].phones.length ?
+                   <p>{data.data.practices[0].phones[0].number}</p>
                    : <p>None Provided</p>}
               <span style={{ textDecoration: 'underline' }}>Website </span> 
-                {data.practices[0].website ? 
-               <p> <a href={data.practices[0].website}> Click here for website</a></p>
+                {data.data.practices[0].website ? 
+               <p> <a href={data.data.practices[0].website}> Click here for website</a></p>
                 : <p>None Provided</p>}
                 </Card>
 
                 <Card background='#8b9dc3'>
                 <h3 style={{ textDecoration: 'underline' }}> Accepted Insurances </h3>
                 
-                {data.insurances.length 
-                  ? data.insurances.map(insurance => insurance.insurance_provider.name).join(', ').slice(0,790)+"..."
+                {data.data.insurances.length 
+                  ? data.data.insurances.map(insurance => insurance.insurance_provider.name).join(', ').slice(0,790)+"..."
                   : <span>No insurance listed. Contact doctor for more information.</span> }
                 
                 </Card>
                 </CardStack>    
+                </li>
+                </ul>  
                 </div>
-                )})
+                
+                )
+
+              })
+                
               : <p>NO MATCHES!</p>
           }
         </div>
@@ -66,16 +82,16 @@ class Matches extends Component {
 const mapState = state => ({
   user: state.user,
   matches: state.matches,
-  matchDocs: state.matchDocs,
+  matchdocs: state.matchdocs
 });
 
 const mapDispatch = dispatch => ({
   loadMatches(id) {
     dispatch(fetchMatches(id));
   },
-  onUnmatch(doc, userId) {
-    if (window.confirm(`Are you sure you want to delete ${doc.name.$t}?`))
-      dispatch(unMatch(doc.id.$t, userId));
+  onUnmatch(docId, userId) {
+    if (window.confirm(`Are you sure you want to delete this doctor?`))
+      dispatch(unMatch(docId, userId));
   }
 });
 
