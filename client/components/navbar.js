@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import AllDoctors from './AllDoctors';
 import UserHome from './user-home';
+import Footer from './footer';
 
 
 const Navbar = ({ handleClick, isLoggedIn, children }) => (
@@ -30,7 +31,7 @@ const Navbar = ({ handleClick, isLoggedIn, children }) => (
             <h1><img className="icon" src="/doc-icon.png" />LocalDoctor</h1>
             </div>
         }
-      {children}
+        {/*<Footer/>*/}
     </div>
   )
 

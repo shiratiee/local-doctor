@@ -186,3 +186,11 @@ button {
   position: relative;
   transition: all 0.3s;
 }
+
+.footer {
+  position:fixed;
+  bottom:0;
+  width:100%;
+  height:15px;
+  background:black
+}

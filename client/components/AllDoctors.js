@@ -139,7 +139,7 @@ render() {
                     
                 </div>
               ))
-              : <p>NO RESULTS FOUND! TRY ANOTHER SEARCH.</p>
+              : <h2 className="no-match">NO RESULTS FOUND! TRY ANOTHER SEARCH.</h2>
           }
             </div>
           }
