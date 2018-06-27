@@ -125,6 +125,10 @@ nav {
 
 }
 
+*{
+  box-sizing: border-box;
+}
+
 .main-auth{
   text-align:center;
   display:flex;
@@ -132,12 +136,17 @@ nav {
 }
 
 input {
-  width: 64%;
+  display: block;
+  width: 100%;
   height: 45px;
   margin-bottom: 0px !important; 
   font-size: 18px;
   border: black 1px solid;
-  padding-left: 3% !important; 
+}
+
+.login {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 button {

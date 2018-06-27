@@ -28,7 +28,8 @@ class Matches extends Component {
                 <Card background='#c7b1c7'>
                 <button	
                 onClick={(event) => {
-                  event.preventDefault(); this.props.onUnmatch(pet, this.props.user.id);
+                  event.preventDefault(); 
+                  this.props.onUnmatch(data.uid, this.props.user.id);
                   }}
                     >	
                     X	
@@ -88,9 +89,9 @@ const mapDispatch = dispatch => ({
   loadMatches(id) {
     dispatch(fetchMatches(id));
   },
-  onUnmatch(doc, userId) {
-    if (window.confirm(`Are you sure you want to delete ${data.data.profile.first_name}?`))
-      dispatch(unMatch(data.uid, userId));
+  onUnmatch(docId, userId) {
+    if (window.confirm(`Are you sure you want to delete this doctor?`))
+      dispatch(unMatch(docId, userId));
   }
 });
 
