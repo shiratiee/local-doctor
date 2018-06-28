@@ -30,7 +30,7 @@ router.post('/', (req, res, next) => {
 router.delete('/', (req, res, next) => {
   Match.destroy({
       where: {
-        petId: req.body.docId,
+        docId: req.body.docId,
         userId: req.body.userId,
       }
     })
