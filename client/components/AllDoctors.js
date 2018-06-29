@@ -162,8 +162,11 @@ const mapDispatch = dispatch => ({
   },
   onLove(docId, userId) {
     console.log('docId', docId, 'userId', userId)
-    if (!userId) window.confirm('You must login to save doctor information')
-    else dispatch(addMatches(docId, userId));
+    if (!userId) {window.confirm('You must login to save doctor information')
+    } else { 
+     window.confirm(`Are you sure you want to add this doctor to your profile?`)        
+     dispatch(addMatches(docId, userId));
+   }
   }
 });
 
