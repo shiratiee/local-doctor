@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 3000
 const app = express()
 const socketio = require('socket.io')
 const path = require('path')
+const sslRedirect = require('heroku-ssl-redirect');
 
 
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar'
 import { CardStack, Card } from 'react-cardstack';
-import {fetchMatches, addMatches } from '../store';
+import {addMatches } from '../store';
 const Loading = require('react-loading-animation');
 
 
