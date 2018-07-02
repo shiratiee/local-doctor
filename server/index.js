@@ -96,6 +96,10 @@ const createApp = () => {
   })
 }
 
+ // enable ssl redirect
+ app.use(sslRedirect());
+
+
 
 
 const startListening = () => {
