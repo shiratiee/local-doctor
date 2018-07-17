@@ -18,10 +18,10 @@ const Match = db.define('match', {
     type: Sequelize.STRING,
   },
   image_url:{
-    
+    type: Sequelize.STRING,
   },
   street:{
-    
+    type: Sequelize.STRING,
   },
   city:{
     type: Sequelize.STRING,
@@ -30,13 +30,13 @@ const Match = db.define('match', {
     type: Sequelize.STRING,
   },
   phoneNum:{
-
+    type: Sequelize.INTEGER,
   },
   website:{
     type: Sequelize.STRING,
   },
   insurances:{
-
+    type:Sequelize.ARRAY(Sequelize.STRING),
   },
   
 });
