@@ -37,11 +37,9 @@ constructor(props) {
       this.setState({
         latLng: [latitude, longitude],
         loading: false
-        
       });
       this.props.onLocation(this.state.latLng[0], this.state.latLng[1]);
     }
-  
     errorHandler(err) {
       console.log('getCurrentPosition Error:', err);
     }
@@ -56,7 +54,9 @@ performSearch = (query) => {
     console.log(res)
     this.setState({doctors: res.data,loading: false})
     console.log(this.state.doctors)
-    res.data.length ? this.setState({nomatch: false}) : this.setState({nomatch: true})
+    res.data.length 
+    ? this.setState({nomatch: false}) 
+    : this.setState({nomatch: true})
   })
   .catch((error) => {
     console.log('Request failed', error)
@@ -69,19 +69,20 @@ render() {
   return (
     <div>
     <div className="all-doctors-container">
-    { !this.state.geolocationOn ?
-    <h4> Click "Get Current Location" button below before searching. </h4>
-    : <span></span>
+    { !this.state.geolocationOn 
+      ? <h4> Click "Get Current Location" button below before searching. </h4>
+      : <span></span>
     }
     {
       this.state.geolocationOn
-        ?  this.state.loading ?
-            <Loading/> : <SearchBar onSearch={this.performSearch}/>  
-          : <button className='geoLoc' onClick={(e) => {
-              e.preventDefault();
-              this.getLocation();
-            }}>
-            Get Current Location
+        ?  this.state.loading 
+          ? <Loading/> 
+          : <SearchBar onSearch={this.performSearch}/>  
+        : <button className='geoLoc' onClick={(e) => {
+            e.preventDefault();
+            this.getLocation();
+          }}>
+          Get Current Location
           </button>
     }
   </div>
@@ -116,13 +117,13 @@ render() {
                       {data.practices[0].visit_address.city}, {data.practices[0].visit_address.state} <br></br>
                     </p> 
                     <span style={{ textDecoration: 'underline' }}>Phone Number </span> 
-                    {data.practices[0].phones.length ?
-                       <p>{data.practices[0].phones[0].number}</p>
-                       : <p>None Provided</p>}
+                    {data.practices[0].phones.length 
+                      ? <p>{data.practices[0].phones[0].number}</p>
+                      : <p>None Provided</p>}
                   <span style={{ textDecoration: 'underline' }}>Website </span> 
-                    {data.practices[0].website ? 
-                   <p> <a href={data.practices[0].website}> Click here for website</a></p>
-                    : <p>None Provided</p>}
+                    {data.practices[0].website 
+                      ? <p> <a href={data.practices[0].website}> Click here for website</a></p>
+                      : <p>None Provided</p>}
                     </Card>
 
                     <Card background='#8b9dc3'>
