@@ -70,7 +70,7 @@ render() {
     <div>
     <div className="all-doctors-container">
     { !this.state.geolocationOn 
-      ? <h4> Click "Get Current Location" button below before searching. </h4>
+      ? <h4> Find a doctor near you! Click "Get Current Location" button below before searching. </h4>
       : <span></span>
     }
     {
