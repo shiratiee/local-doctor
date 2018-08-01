@@ -4,41 +4,12 @@ const db = require('../db');
 const Match = db.define('match', {
   docId: {
     type: Sequelize.STRING,
+    allowNull: true
   },
   userId: {
     type: Sequelize.INTEGER,
-  },
-  firstName:{
-    type: Sequelize.STRING,
-  },
-  lastName:{
-    type: Sequelize.STRING,
-  },
-  title:{
-    type: Sequelize.STRING,
-  },
-  image_url:{
-    type: Sequelize.STRING,
-  },
-  street:{
-    type: Sequelize.STRING,
-  },
-  city:{
-    type: Sequelize.STRING,
-  },
-  state:{
-    type: Sequelize.STRING,
-  },
-  phoneNum:{
-    type: Sequelize.INTEGER,
-  },
-  website:{
-    type: Sequelize.STRING,
-  },
-  insurances:{
-    type:Sequelize.ARRAY(Sequelize.STRING),
-  },
-  
+    allowNull: true
+  }
 });
 
 module.exports = Match;
