@@ -102,7 +102,7 @@ render() {
 
                     <Card background='#c7b1c7'>
                     <button	
-                    onClick={() => { onLove(data.uid,user.id); }}	
+                    onClick={() => { onLove(data.uid,user.id,data.profile.first_name,data.profile.last_name,data.profile.title,data.profile.image_url,data.practices[0].visit_address.street,data.practices[0].visit_address.city,data.practices[0].visit_address.state,data.practices[0].phones[0].number,data.practices[0].website)}}
                     >	
                     Save Doctor Info 	
                     </button>
@@ -161,12 +161,12 @@ const mapDispatch = dispatch => ({
   onLocation(lat, lng) {
     console.log('LAT', lat, 'LNG', lng)
   },
-  onLove(docId, userId) {
-    console.log('docId', docId, 'userId', userId)
+  onLove(docId, userId, firstName, lastName, title, image_url, street,city,state,phoneNum,website) {
+    console.log('docId', docId, 'userId', userId, firstName)
     if (!userId) {window.confirm('You must login to save doctor information')
     } else { 
      window.confirm(`Are you sure you want to add this doctor to your profile?`)        
-     dispatch(addMatches(docId, userId));
+     dispatch(addMatches(docId, userId, firstName, lastName, title, image_url, street,city,state,phoneNum,website));
    }
   }
 });
