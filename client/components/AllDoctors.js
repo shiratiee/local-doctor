@@ -68,82 +68,88 @@ render() {
   const { onLove, user } = this.props
   return (
     <div>
-    <div className="all-doctors-container">
-    { !this.state.geolocationOn 
-      ? <h4> Find a doctor near you! Click "Get Current Location" button below before searching. </h4>
-      : <span></span>
-    }
-    {
-      this.state.geolocationOn
-        ?  this.state.loading 
-          ? <Loading/> 
-          : <SearchBar onSearch={this.performSearch}/>  
-        : <button className='geoLoc' onClick={(e) => {
-            e.preventDefault();
-            this.getLocation();
-          }}>
-          Get Current Location
-          </button>
-    }
-  </div>
+      <div className="all-doctors-container">
+        {
+          !this.state.geolocationOn 
+          ? <h4>
+              Find a doctor near you! Click "Get Current Location" button below before searching.
+            </h4>
+          : null
+        }
+        {
+          this.state.geolocationOn
+            ? this.state.loading 
+              ? <Loading/> 
+              : <SearchBar onSearch={this.performSearch}/>  
+            : <button className='geoLoc' onClick={(e) => {
+                e.preventDefault();
+                this.getLocation();
+              }}>
+                Get Current Location
+              </button>
+        }
+      </div>
  
       {  
         <div className="row">
-       {    !this.state.nomatch ?
+          {    
+            !this.state.nomatch ?
               this.state.doctors.map((data, i) => (
                 <div key ={i}>
                   <ul className="doctor">
                     <li>
-                    <CardStack
-	                  height={500}
-                    width={280}
-	                  background='#c7b1c7'
-	                  hoverOffset={25}>
+                      <CardStack
+                        height={500}
+                        width={280}
+                        background='#c7b1c7'
+                        hoverOffset={25}
+                      >
+                        <Card background='#c7b1c7'>
+                          <button	
+                            onClick={() => { onLove(data.uid,user.id,data.profile.first_name,data.profile.last_name,data.profile.title,data.profile.image_url,data.practices[0].visit_address.street,data.practices[0].visit_address.city,data.practices[0].visit_address.state,data.practices[0].phones[0].number,data.practices[0].website)}}
+                          >	
+                            Save Doctor Info 	
+                          </button>
+                          <h3 style={{ textDecoration: 'underline' }}>
+                            {data.profile.first_name} 
+                            {data.profile.last_name}, {data.profile.title}
+                          </h3> 
+                          <img className="doc-image" src={data.profile.image_url} />
+                          <br></br>
+                          <br></br>
+                          <span style={{ textDecoration: 'underline' }}>Address</span>
+                          <p>
+                            {data.practices[0].visit_address.street}<br></br>
+                            {data.practices[0].visit_address.city}, {data.practices[0].visit_address.state}<br></br>
+                          </p> 
+                          <span style={{ textDecoration: 'underline' }}>Phone Number</span> 
+                          {data.practices[0].phones.length 
+                            ? <p>{data.practices[0].phones[0].number}</p>
+                            : <p>None Provided</p>}
+                          <span style={{ textDecoration: 'underline' }}>Website</span> 
+                          {data.practices[0].website 
+                            ? <p>
+                                <a href={data.practices[0].website}>Click here for website</a>
+                              </p>
+                            : <p>None Provided</p>}
+                        </Card>
 
-                    <Card background='#c7b1c7'>
-                    <button	
-                    onClick={() => { onLove(data.uid,user.id,data.profile.first_name,data.profile.last_name,data.profile.title,data.profile.image_url,data.practices[0].visit_address.street,data.practices[0].visit_address.city,data.practices[0].visit_address.state,data.practices[0].phones[0].number,data.practices[0].website)}}
-                    >	
-                    Save Doctor Info 	
-                    </button>
-                    <h3 style={{ textDecoration: 'underline' }}> {data.profile.first_name}
-                    {data.profile.last_name}, {data.profile.title} </h3> 
-                    <img className="doc-image" src={data.profile.image_url} />
-                    <br></br>
-                    <br></br>
-                    <span style={{ textDecoration: 'underline' }}> Address </span>
-                    <p>
-                      {data.practices[0].visit_address.street} <br></br>
-                      {data.practices[0].visit_address.city}, {data.practices[0].visit_address.state} <br></br>
-                    </p> 
-                    <span style={{ textDecoration: 'underline' }}>Phone Number </span> 
-                    {data.practices[0].phones.length 
-                      ? <p>{data.practices[0].phones[0].number}</p>
-                      : <p>None Provided</p>}
-                  <span style={{ textDecoration: 'underline' }}>Website </span> 
-                    {data.practices[0].website 
-                      ? <p> <a href={data.practices[0].website}> Click here for website</a></p>
-                      : <p>None Provided</p>}
-                    </Card>
-
-                    <Card background='#8b9dc3'>
-                    <h3 style={{ textDecoration: 'underline' }}> Accepted Insurances </h3>
-                    
-                    {data.insurances.length 
-                      ? data.insurances.map(insurance => insurance.insurance_provider.name).join(', ').slice(0,790)+"..."
-                      : <span>No insurance listed. Contact doctor for more information.</span> }
-                    
-                    </Card>
-                    </CardStack>    
-                      </li>
-                    </ul>  
-                    
+                        <Card background='#8b9dc3'>
+                          <h3 style={{ textDecoration: 'underline' }}>Accepted Insurances</h3>
+                          
+                          {data.insurances.length 
+                            ? data.insurances.map(insurance => insurance.insurance_provider.name).join(', ').slice(0,790)+"..."
+                            : <span>No insurance listed. Contact doctor for more information.</span> }                     
+                        </Card>
+                      </CardStack>    
+                    </li>
+                  </ul>    
                 </div>
-              ))
-              : <h2 className="no-match">NO RESULTS FOUND! TRY ANOTHER SEARCH.</h2>
+              )) :
+                <h2 className="no-match">NO RESULTS FOUND! TRY ANOTHER SEARCH.</h2>
           }
             </div>
-          }
+      }
         
         </div>
         
