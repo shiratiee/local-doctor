@@ -145,18 +145,14 @@ render() {
                     </li>
                   </ul>    
                 </div>
-              )) :
-                <h2 className="no-match">NO RESULTS FOUND! TRY ANOTHER SEARCH.</h2>
+            )) :
+              <h2 className="no-match">NO RESULTS FOUND! TRY ANOTHER SEARCH.</h2>
           }
-            </div>
-      }
-        
         </div>
-        
-      );
-    
-    }
-  }
+      }     
+    </div>   
+  );
+}
 
 
 const mapState = state => ({
