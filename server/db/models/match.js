@@ -32,7 +32,7 @@ const Match = db.define('match', {
     type: Sequelize.STRING,
   },
   phoneNum:{
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
   },
   website:{
     type: Sequelize.STRING,
