@@ -28,8 +28,20 @@ class Matches extends Component {
                 <button	
                 onClick={(event) => {
                   event.preventDefault(); 
-                  this.props.onUnmatch(data.uid, this.props.user.id);
-                  }}
+                  this.props.onUnmatch(
+                  this.props.matches.id, 
+                  this.props.user.id,
+                  this.props.matches.firstName,
+                  this.props.matches.lastName,
+                  this.props.matches.title,
+                  this.props.matches.image_url,
+                  this.props.matches.street,
+                  this.props.matches.city,
+                  this.props.matches.state,
+                  this.props.matches.phoneNum,
+                  this.props.matches.website
+                  );
+                }}
                     >	
                     X	
                     </button>
@@ -88,9 +100,9 @@ const mapDispatch = dispatch => ({
   onload() {
     dispatch(fetchDocById)
   },
-  onUnmatch(docId, userId) {
+  onUnmatch(docId, userId, firstName, lastName, title, image_url, street, city, state, phoneNum, website) {
     if (window.confirm(`Are you sure you want to delete this doctor?`))
-      dispatch(unMatch(docId, userId));
+      dispatch(unMatch(docId, userId, firstName, lastName, title, image_url, street, city, state, phoneNum, website));
   }
 });
 
