@@ -18,7 +18,17 @@ router.post('/', (req, res, next) => {
   Match.findOrCreate({
       where: {
         docId: req.body.docId,
-        userId: req.body.userId
+        userId: req.body.userId,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        title: req.body.title,
+        image_url: req.body.image_url,
+        street: req.body.street,
+        city: req.body.city,
+        state: req.body.state,
+        phoneNum: req.body.phoneNum,
+        website: req.body.website,
+        insurances: req.body.insurances
       }
     })
     .then((newMatch) => res.json(newMatch[0]))

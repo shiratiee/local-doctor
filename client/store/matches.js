@@ -29,14 +29,15 @@ export const fetchMatches = userId =>
         .then(results => results.matches.map(doc => dispatch(fetchDocById(doc.docId))))
         .catch(err => console.log(err));
 
-export const addMatches = (docId, userId) =>
+export const addMatches = (docId, userId, firstName, lastName, title, image_url, street, city, state, phoneNum, website) =>
   dispatch =>
-    axios.post('/api/match', { docId, userId })
+    axios.post('/api/match', { docId, userId, firstName, lastName, title, image_url, street, city, state, phoneNum, website })
       .then((res) => {
         dispatch(createMatches(res.data));
-        dispatch(fetchDocById(docId));
+        // dispatch(fetchDocById(docId));
       })
       .catch(err => console.log(err));
+
 
 export const unMatch = (docId, userId) =>
   dispatch =>
@@ -44,7 +45,7 @@ export const unMatch = (docId, userId) =>
       .then((res) => {
         dispatch(removeUnmatchedDocs());
         dispatch(fetchMatches(userId));
-        dispatch(fetchDocById(docId));
+        // dispatch(fetchDocById(docId));
       })
       .catch(err => console.log(err));
 
