@@ -56,7 +56,7 @@ class Matches extends Component {
                   {this.props.matches.city}, {this.props.matches.state} <br></br>
                 </p> 
                 <span style={{ textDecoration: 'underline' }}>Phone Number </span> 
-                {this.props.matches.phoneNum.length ?
+                {this.props.matches.phoneNum ?
                    <p>{this.props.matches.phoneNum}</p>
                    : <p>None Provided</p>}
               <span style={{ textDecoration: 'underline' }}>Website </span> 
@@ -68,10 +68,7 @@ class Matches extends Component {
                 <Card background='#8b9dc3'>
                 <h3 style={{ textDecoration: 'underline' }}> Accepted Insurances </h3>
                 
-                 {data.data.insurances.length 
-                  ? data.data.insurances.map(insurance => insurance.insurance_provider.name).join(', ').slice(0,790)+"..."
-                  : <span>No insurance listed. Contact doctor for more information.</span> }
-                
+               
                 </Card>
                 </CardStack>    
                 </li>
