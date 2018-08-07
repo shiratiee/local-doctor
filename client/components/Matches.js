@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import FontAwesome from 'react-fontawesome';
 import { unMatch, fetchMatches, fetchDocById } from '../store';
 import { CardStack, Card } from 'react-cardstack';
 import { connect } from 'react-redux';
@@ -13,8 +12,8 @@ class Matches extends Component {
         <h2 className="matches">Matches</h2>
         <div className="row">
           {this.props.matches.length ?
-              this.props.matchdocs.map((data, i) => { 
-                console.log(this.props.matchdocs, "THISSSS")
+              this.props.matches.map((data, i) => { 
+                console.log(this.props.matches, "THISSSS")
                 return ( 
                 <div key={i}>
                 <ul className="doctor">
@@ -34,30 +33,30 @@ class Matches extends Component {
                     >	
                     X	
                     </button>
-                <h3 style={{ textDecoration: 'underline' }}> {data.data.profile.first_name}
-                {data.data.profile.last_name}, {data.data.profile.title} </h3> 
-                <img className="doc-image" src={data.data.profile.image_url} />
+                <h3 style={{ textDecoration: 'underline' }}> {this.props.matches.firstName}
+                {this.props.matches.lastName}, {this.props.matches.title} </h3> 
+                <img className="doc-image" src={this.props.matches.image_url} />
                 <br></br>
                 <br></br>
                 <span style={{ textDecoration: 'underline' }}> Address </span>
                 <p>
-                  {data.data.practices[0].visit_address.street} <br></br>
-                  {data.data.practices[0].visit_address.city}, {data.data.practices[0].visit_address.state} <br></br>
+                  {this.props.matches.street} <br></br>
+                  {this.props.matches.city}, {this.props.matches.state} <br></br>
                 </p> 
                 <span style={{ textDecoration: 'underline' }}>Phone Number </span> 
-                {data.data.practices[0].phones.length ?
-                   <p>{data.data.practices[0].phones[0].number}</p>
+                {this.props.matches.phoneNum.length ?
+                   <p>{this.props.matches.phoneNum}</p>
                    : <p>None Provided</p>}
               <span style={{ textDecoration: 'underline' }}>Website </span> 
-                {data.data.practices[0].website ? 
-               <p> <a href={data.data.practices[0].website}> Click here for website</a></p>
+                {this.props.matches.website ? 
+               <p> <a href={this.props.matches.website}> Click here for website</a></p>
                 : <p>None Provided</p>}
                 </Card>
 
                 <Card background='#8b9dc3'>
                 <h3 style={{ textDecoration: 'underline' }}> Accepted Insurances </h3>
                 
-                {data.data.insurances.length 
+                 {data.data.insurances.length 
                   ? data.data.insurances.map(insurance => insurance.insurance_provider.name).join(', ').slice(0,790)+"..."
                   : <span>No insurance listed. Contact doctor for more information.</span> }
                 
