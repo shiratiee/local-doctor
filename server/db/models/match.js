@@ -36,6 +36,9 @@ const Match = db.define('match', {
   },
   website:{
     type: Sequelize.STRING,
+  },
+  insurances: {
+    type:Sequelize.ARRAY(Sequelize.TEXT),
   }
 });
 

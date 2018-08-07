@@ -45,7 +45,7 @@ export const unMatch = (docId, userId) =>
       .then((res) => {
         dispatch(removeUnmatchedDocs());
         dispatch(fetchMatches(userId));
-        dispatch(fetchDocById(docId));
+        // dispatch(fetchDocById(docId));
       })
       .catch(err => console.log(err));
 

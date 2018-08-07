@@ -27,7 +27,8 @@ router.post('/', (req, res, next) => {
         city: req.body.city,
         state: req.body.state,
         phoneNum: req.body.phoneNum,
-        website: req.body.website
+        website: req.body.website,
+        insurances: req.body.insurances
       }
     })
     .then((newMatch) => res.json(newMatch[0]))

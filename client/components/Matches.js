@@ -67,7 +67,10 @@ class Matches extends Component {
 
                 <Card background='#8b9dc3'>
                 <h3 style={{ textDecoration: 'underline' }}> Accepted Insurances </h3>
-                
+
+                {data.insurances
+                  ? this.props.matches[0].insurances.map(insurance => insurance.insurance_provider.name).join(', ').slice(0,790)+"..."
+                  : <span>No insurance listed. Contact doctor for more information.</span>}
                
                 </Card>
                 </CardStack>    
@@ -89,17 +92,16 @@ class Matches extends Component {
 
 const mapState = state => ({
   user: state.user,
-  matches: state.matches,
-  matchdocs: state.matchdocs
+  matches: state.matches
 });
 
 const mapDispatch = dispatch => ({
   onload() {
     dispatch(fetchDocById)
   },
-  onUnmatch(docId, userId, firstName, lastName, title, image_url, street, city, state, phoneNum, website) {
+  onUnmatch(docId, userId, firstName, lastName, title, image_url, street, city, state, phoneNum, website, insurances) {
     if (window.confirm(`Are you sure you want to delete this doctor?`))
-      dispatch(unMatch(docId, userId, firstName, lastName, title, image_url, street, city, state, phoneNum, website));
+      dispatch(unMatch(docId, userId, firstName, lastName, title, image_url, street, city, state, phoneNum, website, insurances));
   }
 });
 
