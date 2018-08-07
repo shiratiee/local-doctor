@@ -45,23 +45,23 @@ class Matches extends Component {
                     >	
                     X	
                     </button>
-                <h3 style={{ textDecoration: 'underline' }}> {this.props.matches.firstName}
-                {this.props.matches.lastName}, {this.props.matches.title} </h3> 
-                <img className="doc-image" src={this.props.matches.image_url} />
+                <h3 style={{ textDecoration: 'underline' }}> {this.props.matches[0].firstName}
+                {this.props.matches[0].lastName}, {this.props.matches[0].title} </h3> 
+                <img className="doc-image" src={this.props.matches[0].image_url} />
                 <br></br>
                 <br></br>
                 <span style={{ textDecoration: 'underline' }}> Address </span>
                 <p>
-                  {this.props.matches.street} <br></br>
-                  {this.props.matches.city}, {this.props.matches.state} <br></br>
+                  {this.props.matches[0].street} <br></br>
+                  {this.props.matches[0].city}, {this.props.matches[0].state} <br></br>
                 </p> 
                 <span style={{ textDecoration: 'underline' }}>Phone Number </span> 
-                {this.props.matches.phoneNum ?
-                   <p>{this.props.matches.phoneNum}</p>
+                {this.props.matches[0].phoneNum ?
+                   <p>{this.props.matches[0].phoneNum}</p>
                    : <p>None Provided</p>}
               <span style={{ textDecoration: 'underline' }}>Website </span> 
-                {this.props.matches.website ? 
-               <p> <a href={this.props.matches.website}> Click here for website</a></p>
+                {this.props.matches[0].website ? 
+               <p> <a href={this.props.matches[0].website}> Click here for website</a></p>
                 : <p>None Provided</p>}
                 </Card>
 
