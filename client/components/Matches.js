@@ -40,7 +40,7 @@ class Matches extends Component {
                             this.props.matches.state,
                             this.props.matches.phoneNum,
                             this.props.matches.website,
-                            data.insurances.map(insurance => insurance.insurance_provider.name).join(', ').slice(0,790)+"..."
+                            this.props.matches.insurances
                             );
                           }}
                           >	
