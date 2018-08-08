@@ -126,7 +126,8 @@ nav {
   }
 
  .icon {
-  width: 5%;  
+  height: 40px;
+  width: 40px;  
   margin-right: 10px;
  }
 
