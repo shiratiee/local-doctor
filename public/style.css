@@ -101,10 +101,9 @@ nav {
     background-color: #c7b1c7;
     font-family: 'Lato', sans-serif;
     color: #8d1c8d;
-    font-size: 3vw;
-    text-indent: 46px;
+    text-indent: 40px;
     margin: 0;
-    padding: 8px 0px 13px 0px;
+    padding: 7px 0px 14px 0px;
   }
 
 
@@ -127,7 +126,7 @@ nav {
   }
 
  .icon {
-  width: 3%; 
+  width: 5%;  
   margin-right: 10px;
  }
 
@@ -175,16 +174,13 @@ button {
   height: 45px;
   background: #8d1c8d;
   color: #fff;
-  padding: 14px 37px 14px 37px;
-  border: none;
-  cursor: pointer;
+  padding: 15px 38px 15px 38px;
   margin: 5px 0 5px 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
   outline: none;
   position: relative;
-  transition: all 0.3s;
 }
 
 .footer {

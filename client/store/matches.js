@@ -1,10 +1,11 @@
 import axios from 'axios';
-import { fetchDocById, removeUnmatchedDocs } from './';
+import { fetchDocById } from './';
 
 // ACTION TYPES
 
 const GET_MATCHES = 'GET_MATCHES';
 const CREATE_MATCHES = 'CREATE_MATCHES';
+const REMOVE_UNMATCHES = 'REMOVE_UNMATCHES';
 
 // ACTION CREATOR
 
@@ -12,6 +13,10 @@ const getMatches = matches => ({
   type: GET_MATCHES,
   matches,
 });
+
+const removeUnmatchedDocs = () => ({
+  type: REMOVE_UNMATCHES
+})
 
 
 const createMatches = match => ({
@@ -39,12 +44,12 @@ export const addMatches = (docId, userId, firstName, lastName, title, image_url,
       .catch(err => console.log(err));
 
 
-export const unMatch = (docId, userId) =>
+export const unMatch = (docId, userId, firstName, lastName, title, image_url, street, city, state, phoneNum, website, insurances) =>
   dispatch =>
-    axios.delete('/api/match', {data:{docId: docId, userId: userId}})
+    axios.delete('/api/match', {data:{docId: docId, userId: userId, firstName: firstName, lastName: lastName, title:title, image_url: image_url, street: street, city: city, state: state, phoneNum: phoneNum, website: website, insurances: insurances}})
       .then((res) => {
         dispatch(removeUnmatchedDocs());
-        dispatch(fetchMatches(userId));
+        // dispatch(fetchMatches(userId));
         // dispatch(fetchDocById(docId));
       })
       .catch(err => console.log(err));
@@ -57,6 +62,8 @@ export default function (state = [], action) {
       return action.matches;
     case CREATE_MATCHES:
       return [...state, action.match];
+    case REMOVE_UNMATCHES:
+      return state = [];
     default:
       return state;
   }
