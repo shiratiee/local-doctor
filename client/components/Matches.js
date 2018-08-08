@@ -46,25 +46,25 @@ class Matches extends Component {
                           X	
                         </button>
                         <h3 style={{ textDecoration: 'underline' }}> 
-                        {this.props.matches[0].firstName}
-                        {this.props.matches[0].lastName}, {this.props.matches[0].title} 
+                        {this.props.matches[i].firstName}
+                        {this.props.matches[i].lastName}, {this.props.matches[i].title} 
                         </h3> 
-                        <img className="doc-image" src={this.props.matches[0].image_url} />
+                        <img className="doc-image" src={this.props.matches[i].image_url} />
                         <br></br>
                         <br></br>
                         <span style={{ textDecoration: 'underline' }}>Address</span>
                         <p>
-                          {this.props.matches[0].street} <br></br>
-                          {this.props.matches[0].city}, {this.props.matches[0].state}<br></br>
+                          {this.props.matches[i].street} <br></br>
+                          {this.props.matches[i].city}, {this.props.matches[i].state}<br></br>
                         </p> 
                         <span style={{ textDecoration: 'underline' }}>Phone Number</span> 
-                        {this.props.matches[0].phoneNum 
-                          ? <p>{this.props.matches[0].phoneNum}</p>
+                        {this.props.matches[i].phoneNum 
+                          ? <p>{this.props.matches[i].phoneNum}</p>
                           : <p>None Provided</p>}
                       <span style={{ textDecoration: 'underline' }}>Website </span> 
-                        {this.props.matches[0].website 
+                        {this.props.matches[i].website 
                           ? <p> 
-                              <a href={this.props.matches[0].website}> Click here for website</a>
+                              <a href={this.props.matches[i].website}> Click here for website</a>
                             </p>
                           : <p>None Provided</p>}
                         </Card>
@@ -73,7 +73,7 @@ class Matches extends Component {
                         <h3 style={{ textDecoration: 'underline' }}> Accepted Insurances </h3>
 
                         {data.insurances
-                          ? this.props.matches[0].insurances.map(insurance => insurance.insurance_provider.name).join(', ').slice(0,790)+"..."
+                          ? this.props.matches[i].insurances.map(insurance => insurance.insurance_provider.name).join(', ').slice(0,790)+"..."
                           : <span>No insurance listed. Contact doctor for more information.</span>}
                       </Card>
                 </CardStack>    
