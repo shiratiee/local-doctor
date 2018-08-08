@@ -117,7 +117,7 @@ class AllDoctors extends React.Component {
                                   data.practices[0].visit_address.state,
                                   data.practices[0].phones[0].number,
                                   data.practices[0].website,
-                                  data.insurances
+                                  data.insurances.map(insurance => insurance.insurance_provider.name).join(', ').slice(0,790)+"..."
                                 )
                               }
                             >	
@@ -178,7 +178,7 @@ const mapDispatch = dispatch => ({
     console.log('LAT', lat, 'LNG', lng)
   },
   onSave(docId, userId, firstName, lastName, title, image_url, street, city, state, phoneNum, website, insurances) {
-    console.log('docId', docId, 'userId', userId, 'firstName', firstName)
+    console.log('docId', docId, 'userId', userId, 'firstName', firstName, insurances)
     if (!userId) {window.alert('You must login to save doctor information')
     } else { 
      window.confirm(`Are you sure you want to add this doctor to your profile?`)        

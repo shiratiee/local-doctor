@@ -38,7 +38,7 @@ const Match = db.define('match', {
     type: Sequelize.STRING,
   },
   insurances: {
-    type:Sequelize.ARRAY(Sequelize.TEXT),
+    type:Sequelize.STRING,
   }
 });
 

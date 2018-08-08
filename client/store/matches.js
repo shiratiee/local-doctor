@@ -29,9 +29,9 @@ export const fetchMatches = userId =>
         .then(results => results.matches.map(doc => dispatch(fetchDocById(doc.docId))))
         .catch(err => console.log(err));
 
-export const addMatches = (docId, userId, firstName, lastName, title, image_url, street, city, state, phoneNum, website) =>
+export const addMatches = (docId, userId, firstName, lastName, title, image_url, street, city, state, phoneNum, website, insurances) =>
   dispatch =>
-    axios.post('/api/match', { docId, userId, firstName, lastName, title, image_url, street, city, state, phoneNum, website })
+    axios.post('/api/match', { docId, userId, firstName, lastName, title, image_url, street, city, state, phoneNum, website, insurances })
       .then((res) => {
         dispatch(createMatches(res.data));
         // dispatch(fetchDocById(docId));

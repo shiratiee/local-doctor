@@ -39,7 +39,8 @@ class Matches extends Component {
                             this.props.matches.city,
                             this.props.matches.state,
                             this.props.matches.phoneNum,
-                            this.props.matches.website
+                            this.props.matches.website,
+                            data.insurances.map(insurance => insurance.insurance_provider.name).join(', ').slice(0,790)+"..."
                             );
                           }}
                           >	
@@ -73,7 +74,7 @@ class Matches extends Component {
                         <h3 style={{ textDecoration: 'underline' }}> Accepted Insurances </h3>
 
                         {data.insurances
-                          ? this.props.matches[i].insurances.map(insurance => insurance.insurance_provider.name).join(', ').slice(0,790)+"..."
+                          ? this.props.matches[i].insurances
                           : <span>No insurance listed. Contact doctor for more information.</span>}
                       </Card>
                 </CardStack>    
